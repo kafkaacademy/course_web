@@ -14,7 +14,6 @@ import org.apache.kafka.streams.kstream.KGroupedStream;
 import org.apache.kafka.streams.kstream.KStream;
 import org.apache.kafka.streams.kstream.KTable;
 import org.apache.kafka.streams.kstream.Materialized;
-import org.apache.kafka.streams.kstream.Named;
 import org.apache.kafka.streams.state.KeyValueStore;
 
 import academy.kafka.config.AppConfig;
@@ -22,16 +21,14 @@ import academy.kafka.entities.Person;
 import academy.kafka.serdes.AppSerdes;
 
 /**
- * In this exercise we focus on groupbykey remember , grouping can take some time
- * (why?)
- * 
+ * In this exercise we focus on groupbykey (note , grouping can take some time to initialize)
  * 
  */
 public class Stream06GroupBy {
     static Random rn = new Random();// helper, remove in production
 
     public static void main(final String[] args) {
-
+        System.out.println("Be patient, groupby needs time to initialize");
         Properties props = new Properties();
         props.put(StreamsConfig.APPLICATION_ID_CONFIG, "streamFilter" + rn.nextInt(10000));
         props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, AppConfig.BootstrapServers);
@@ -39,17 +36,19 @@ public class Stream06GroupBy {
 
         KStream<String, Person> persons = builder.stream(Person.topicName,
                 Consumed.with(AppSerdes.String(), AppSerdes.Person()));
-        KTable<String, Long> countOnBsn = persons.groupByKey()
-                .count(Materialized.<String, Long, KeyValueStore<Bytes, byte[]>>as("counts-bsn-store"));
-        countOnBsn.toStream().peek((k, v) -> System.out.printf("bsn:%s \tnumber:%s\n", k, v));
+        KGroupedStream<String, Person> groupedOnBsn = persons.groupByKey();
+        KTable<String, Long> tblOnBsn = groupedOnBsn
+                .count(Materialized.<String, Long, KeyValueStore<Bytes, byte[]>>as("counts-on-bsn"));
+        tblOnBsn.toStream().peek((k, v) -> System.out.printf("bsn:%s \tnumber:%s\n", k, v));
 
         KStream<String, Person> personsOnProvince = persons.selectKey((bsn, person) -> person.getProvince().getName());
-      //  personsOnProvince.peek((k, v) -> System.out.printf("province:%s \tperson:%s\n", k, v));
-        KGroupedStream<String, Person> grouped = personsOnProvince.groupByKey();
-      //  grouped.count();// why we get a crash on this count, and not the one above?
-      //  grouped.count(Named.as("xyz"));// why we get a crash on this count, and not the one above?
-      //  grouped.count(Materialized.as("xyz"));// why we get a crash on this count, and not the one above?
-      //  grouped.count(Materialized.<String, Long, KeyValueStore<Bytes, byte[]>>as("counts-province-store"));
+        personsOnProvince.peek((k, v) -> System.out.printf("province:%s \tperson:%s\n", k, v));
+        KGroupedStream<String, Person> groupedOnProvince = personsOnProvince.groupByKey();
+        // uncomment the following line and.... we crash
+        // KTable<String, Long> tblOnProvince = groupedOnProvince.count(Materialized.<String, Long, KeyValueStore<Bytes, byte[]>>as("counts-on-province"));
+        // we are doing same count here as above (also on <String,Person>)
+        // but we violate here some rule of Apache Kafka !! Which one??    
+       
         final Topology topology = builder.build();
 
         final KafkaStreams streams = new KafkaStreams(topology, props);
