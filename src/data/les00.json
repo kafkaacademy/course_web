@@ -1,0 +1,18 @@
+{
+    "title": "Make your system ready for the course",
+    "paragraphs": [
+        {
+            "text": "Install Docker from <a href=\"https://www.docker.com/?utm_source=google&utm_medium=cpc&utm_campaign=dockerhomepage&utm_content=nemea&utm_term=dockerhomepage&utm_budget=growth&gclid=CjwKCAjw5p_8BRBUEiwAPpJO67rlJ1JFi7Zi2vHo4OOxO4heeLyD8_M5hWOn2AfqBLTieouTi8N6NBoCtZEQAvD_BwE\" target=\"_blank\">Docker Website</a>"
+        },
+        {
+            "text": "And verify your docker installation (versions will be higher)",
+            "code": {
+                "code": "docker --version\nDocker version 19.03.13, build 4484c46d9d\n\ndocker-compose --version\ndocker-compose version 1.27.4, build 40524192"
+            }
+        },
+        {
+            "text": "Also needed: java (best java 15), npm, and an IDE (Visual Code)",
+            "conclusion": "<h3>Result expected : docker and docker-compose are installed, and other tools.</h3>"
+        }
+    ]
+}

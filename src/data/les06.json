@@ -1,0 +1,30 @@
+{
+    "title": "Some final tricks about data ",
+    "paragraphs": [
+        {
+            "text": "Our pom for this course, with avro plugin",
+            "code": {
+                "language": "xml",
+                "path": "./data/les06/pom.xml"
+            }
+        },
+        {
+            "text": "And our avsc file (avsc=avro schema file)",
+            "code": {
+                "language": "json",
+                "path": "./data/les06/avroPerson.avsc"
+            }
+        },
+        {
+            "text": "Out of avsc we can generate java.<br>Out of java we can generate json <strong>schemas</strong>.",
+            "code": {
+                "language": "java",
+                "path": "./data/les06/Main.java"
+            }
+            ,"conclusion": "Run the main, see the json schema, and see the exception that it thrown. "
+        },
+        {
+            "text":  "See also the generation of avro files (header is schema) and after that the records."
+        }
+    ]
+}

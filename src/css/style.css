@@ -1,0 +1,134 @@
+:root { 
+    font-family: sans-serif;
+  
+    --margin-regular: 25px 25px 25px 25px;
+    --margin-big: 50px 50px 50px 50px;
+    --vertical-spacer: 50px 0px 50px 0px;  
+    
+    --padding-regular: 10px 10px 10px 10px; 
+   
+    --color-main: rgba(173, 207, 219, 0.904); 
+    --color-secondary: rgb(55, 139, 150);
+    --color-accent: rgb(196, 212, 224); 
+}
+
+body {
+    margin: var(--margin-regular);
+    background: var(--color-secondary);
+    width: 75vw;
+    margin: auto;
+}
+
+.paragraph {
+    padding: var(--padding-regular);
+  
+}
+
+#logo1 {
+    height: 35px;
+    background-image: url(LogoWit.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 10px;
+}
+
+#logo2 {
+    height: 65px;
+    background-image: url(LogoQ.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 10px;
+}
+
+section {
+    background: whitesmoke;
+    padding: 50px 50px;
+}
+
+.paragraph-uneven {
+    background: var(--color-accent);
+}
+
+#lessons {
+    margin: var(--vertical-spacer);
+}
+
+nav {
+    text-align: center;
+}
+
+nav a {
+    text-decoration: none; 
+    font-weight: bold;
+    font-size: 20pt;
+}
+
+a:hover {
+    background: #f6b93b;
+}
+
+.title { 
+    font-size: 26pt; 
+    font-weight: 700;
+    padding: var(--padding-regular);
+}
+.container {
+    margin: var(--vertical-spacer);
+}
+.code {
+    margin: var(--vertical-spacer);
+}
+
+code,pre {
+    font-size: 12pt;
+    background-color: rgb(211, 203, 203);
+    border-radius: 3px;
+    padding: var(--padding-regular);
+}
+
+.buttonBox{
+    justify-content: space-between;
+}
+
+.button-next,.button-previous {
+    color: #494949 !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #ffffff;
+    padding: 10px;
+    margin: 25px 0px;
+    border: 4px solid #494949 !important;
+    display: inline-block;
+    transition: all 0.4s ease 0s;
+    font-weight: bold; 
+}
+
+.button-next:hover, .button-previous:hover {
+    color: #ffffff !important;
+    background: #494949;
+    border-color: #494949 !important;
+        transition: all 0.4s ease 0s;
+}
+
+.button-next:active, .button-previous:active {
+    background: yellow; 
+}
+.button-next {
+    margin-left: auto;
+}
+
+.caret::before {
+    content: "\25B6";
+    color: black;
+    display: inline-block;
+    margin-right: 6px;  
+  }
+
+  .caret-down::before {
+    content: "\25B6";
+    color: black;
+    display: inline-block;
+    margin-right: 6px;
+    transform: rotate(90deg);  
+  }
+  

@@ -1,0 +1,87 @@
+{
+    "title": "Serializers, for Apache Avro(compressed Json)  and directly for json",
+    "paragraphs": [
+        {
+            "text": "Why Apache Avro? <br>See <a href=\"http://avro.apache.org\" target=\"_blank\">Apache Avro</a>. See  <a href=\"https://www.confluent.io/blog/avro-kafka-data\" target=\"_blank\">Motivation for Apache Avro</a>"
+        },
+        {
+            "text": "Our pom for this course, with avro plugin",
+            "code": {
+                "language": "xml",
+                "path": "./data/les05/pom.xml"
+            }
+        },
+        {
+            "text": "Example of an avsc file",
+            "code": {
+                "language": "json",
+                "path": "./data/les05/avroPerson.avsc"
+            }
+        },
+        {
+            "text": "After mvn install is the java generated, see (original) pom.xml for apache avro plugin",
+            "code": {
+                "language": "json",
+                "path": "./data/les05/AvroPerson.java"
+            }
+        },
+        {
+            "text": "And then we can serizalize and deserialize the generated avro",
+            "code": {
+                "language": "java",
+                "path": "./data/les05/Main.java"
+            }
+        },
+        {
+            "text": "The utils we use here:",
+            "code": {
+                "language": "java",
+                "path": "./data/les05/AvroUtils.java"
+            },
+            "conclusion": "You see in the AvroUtils file, that there is a specific avro version and a generic avro version.<br> We focus in this course on the specific avro, because that uses Java classes."
+
+        },
+        {
+            "text": "Apache Avro serializers are part of the Confluent implementation. However for educational purposes, we can deliver you a set of Avro Serializers (ask for instructions how)"
+            
+        },
+        {
+            "text": "How to use Avro in practice with Apache Kafka : the producer:",
+            "code": {
+                "language": "java",
+                "path": "./data/les05/AvroProducer.java"
+            }
+        },
+        {
+            "text": "And the consumer. <strong>Note how we add the (de)serializers to the properties of Kafka, this is the way as it is meant by Kafka.</strong>",
+            "code": {
+                "language": "java",
+                "path": "./data/les05/AvroConsumer.java"
+            },
+            "conclusion": "Conclusion : we can serialize and deserialize the java classes with Apache Kafka fluently."
+        },        
+        {
+            "text": "We can do the same with Json (de)serializers, the class that we use for this:",
+            "code": {
+                "language": "java",
+                "path": "./data/les05/JsonPerson.java"
+            }
+        },
+        
+        {
+            "text": "The producer: ",
+            "code": {
+                "language": "java",
+                "path": "./data/les05/JsonProducer.java"
+            }
+        },
+        
+        {
+            "text": "The consumer:",
+            "code": {
+                "language": "java",
+                "path": "./data/les05/JsonConsumer.java"
+            }
+        }
+    ]
+}

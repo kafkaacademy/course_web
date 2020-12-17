@@ -1,0 +1,69 @@
+{
+    "title": "There are 2 popular docker images for Apache Kafka: Wurstmeister and Bitnami",
+    "paragraphs": [
+        {
+            "text": "<b>Wurstmeister</b> Install Docker from  <a href=\"https://www.youtube.com/watch?v=WnlX7w4lHvM\" target=\"_blank\">Instruction video for Wurstmeister</a>.<br>See <a href=\"http://selftuts.com/kafaka-setup-using-docker-compose\">here</a> for the code"
+        },
+        {
+            "text": "Or <b>Bitnami</b> according to this <a href=\"https://www.youtube.com/watch?v=2pBxoal7DY4\" target=\"_blank\">Instruction video Bitnami</a>.<br>See <a href=\"https://github.com/bitnami/bitnami-docker-kafka\">here</a> for the code"
+        },
+        {
+            "text": "And you have created this docker-compose.yml in this directory (les01) ,or choose one place, you will need "
+        },
+        {
+            "text": "And from now on you can start Apache Kafka",
+            "code": {
+                "code": "docker-compose -f docker-compose.yml up"
+            },
+            "conclusion": "with Ctrl-C you can stop Apache Kafka"
+        },
+        {
+            "text": "Or start Apache Kafka in detached mode (preferred):",
+            "code": {
+                "code": "docker-compose -f docker-compose.yml up -d"
+            }
+        },
+        {
+            "text": "And stop Apache Kafka with: ",
+            "code": {
+                "code": "docker-compose  -f docker-compose.yml stop"
+            }
+        },
+        {
+            "text": "And start Apache Kafka again",
+            "code": {
+                "code": "docker-compose  -f docker-compose.yml start"
+            }
+        },
+        {
+            "text": "Also you should be able to use Kafka by logging in into the running Kafka Image and do basic operations. See last 5 minutes Bitnami video. ",
+            "code": {
+                "code": "docker exec -it kafka /bin/sh"
+            }
+        },
+        {
+            "text": "<h3>Result expected: You should always be able to start and stop Apache Kafka </h3>Conclusions:<ul><li>Using Wurstmeister or Bitnami in this way, Apache Kafka behaves as a local installation (hostnames/port as in documentation)</li><li>Restart: does  Apache Kafka keep old data at restart? Has to be researched later!</li></ul>"
+        },
+        {
+            "text": "The code for bitnami",
+            "code": {
+                "language": "yml",
+                "path": "./data/les01/docker-compose.yml"
+            }
+        },
+        {
+            "text": "The code for wurstmeister",
+            "code": {
+                "language": "yml",
+                "path": "./data/les01/docker-compose-wurstmeister.yml"
+            }
+        },
+        {
+            "text": "Optional a popular Kafka Manager made by yahoo",
+            "code": {
+                "language": "txt",
+                "path": "./data/les01/README.txt"
+            }
+        }
+    ]
+}

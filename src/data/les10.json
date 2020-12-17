@@ -1,0 +1,23 @@
+{
+    "title": "Here we will generate example data that we will use in the rest of the course, we do it with help of Rocksdb",
+    "paragraphs": [
+        {
+            "text": "Rocksdb is built in into Kafka, see <a href=\"https://kafka.apache.org/23/documentation/streams/developer-guide/config-streams\" target=\"_blank\">RocksDB configuration in Kafka</a>."
+        },
+        {
+            "text": "Used for storage to serve for example the rest server.<br>It is made by Facebook and donated open source.<br>The data in Kafka is stored in Kafka, but intermediate in streaming apps, some data needs to be statefull accesible. <br>If internal memory is not enough, rocksdb is used.<br>Normally not visible for us but good to know.<br>Rocksdb databases can de deleted, Kafka restores them automatic out of it's own data in the Kafka topics"
+        },
+        {
+            "text": "We use it here outside Kafka, to prepare the data. <ul><li>Cars : we generate card from a csv file.</li><li>We generate Persons</li><li>We generate registrations (persons linked to a car)</li></ul>"
+        },
+        {
+            "text": "And then we feed Kafka with cars, persons and registrations accoring to Domain Driven Design"
+        },
+        {
+           "code": {
+                "language": "zip",
+                "path": "./data/les09/les09.zip"
+            }
+          }
+    ]
+}

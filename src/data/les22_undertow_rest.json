@@ -1,0 +1,27 @@
+{
+    "title": "Restservice implementation with Undertow",
+    "paragraphs": [
+        {
+            "text": "Resetservice interface is descibed in Kafka, see <a href=\"https://kafka.apache.org/documentation/#connect_rest\" target=\"_blank\">Apache Kafka</a>.",
+            "code": {
+                "language": "java",
+                "path": "./data/les08/RestService.java"
+            },
+            "conclusion": "Confluent uses the jetty implementation.."
+        },
+        {
+            "text": "Not needed, but here with some html. (start in visual studio with life server)",
+            "code": {
+                "language": "html",
+                "path": "./data/les08/index.html"
+            }
+          },
+        {
+            "code": {
+                "language": "js",
+                "path": "./data/les08/index.js"
+            },
+            "conclusion": "So also simple html."
+        }
+    ]
+}
