@@ -1,5 +1,5 @@
 {
-    "title": "Aggregates",
+    "title": "Aggregates, as a start to statefull Kafka operations",
     "paragraphs": [
         {
             "text":  "Aggregating needs some attention, as our first real Statefull Kafka operation (after count).<br><a href='https://kafka.apache.org/26/documentation/streams/developer-guide/dsl-api.html#streams-developer-guide-dsl-aggregating' target='_blank'>Look here for the documentation of the Aggregator</a>"
