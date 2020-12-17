@@ -11,20 +11,23 @@ head.appendChild(title);
 
 const body = document.getElementsByTagName("body")[0];
 
-const logo1 = document.createElement("div");
-logo1.id = "logo1";
-
-logo1.innerText="";
-body.appendChild(logo1);
-
-const logo2 = document.createElement("div");
-logo2.id = "logo2";
-logo2.innerText="";
-body.appendChild(logo2);
-
-const menu = document.createElement("nav");
+const menu = document.createElement("div");
 menu.id = "nav_menu";
 body.appendChild(menu);
+
+const logocontainer = document.createElement("div");
+logocontainer.id = "logocontainer";
+menu.appendChild(logocontainer);
+
+const logo1 = document.createElement("img");
+logo1.src = "./data/LogoBold.svg";
+logo1.classList="logo1";
+logocontainer.appendChild(logo1);
+
+const logo2 = document.createElement("img");
+logo2.src = "./data/LogoQ.svg";
+logo2.classList="logo2";
+logocontainer.appendChild(logo2);
 
 const lessons = document.createElement("div");
 lessons.id = "lessons";
@@ -32,7 +35,7 @@ body.appendChild(lessons);
 
 
 var currentLesson = 0;
-var lastLesson = 12;
+var lastLesson = 9;
 
 const lessenEl = document.getElementById("lessons");
 

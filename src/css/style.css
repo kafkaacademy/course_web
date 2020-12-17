@@ -1,6 +1,5 @@
 :root { 
     font-family: sans-serif;
-  
     --margin-regular: 25px 25px 25px 25px;
     --margin-big: 50px 50px 50px 50px;
     --vertical-spacer: 50px 0px 50px 0px;  
@@ -11,38 +10,30 @@
     --color-secondary: rgb(55, 139, 150);
     --color-accent: rgb(196, 212, 224); 
 }
+.logo1 {
+    margin: 25px;
+    height: 25pt;
+}
+
+.logo2 {
+    height: 50pt;
+    margin-top: 5px;
+}
 
 body {
-    margin: var(--margin-regular);
     background: var(--color-secondary);
-    width: 75vw;
     margin: auto;
 }
 
 .paragraph {
     padding: var(--padding-regular);
-  
 }
 
-#logo1 {
-    height: 35px;
-    background-image: url(LogoWit.svg);
-    background-size: contain;
-    background-repeat: no-repeat;
-    margin: 10px;
-}
-
-#logo2 {
-    height: 65px;
-    background-image: url(LogoQ.svg);
-    background-size: contain;
-    background-repeat: no-repeat;
-    margin: 10px;
-}
-
-section {
+.section {
     background: whitesmoke;
     padding: 50px 50px;
+    width: 75vw;
+    margin: auto; 
 }
 
 .paragraph-uneven {
@@ -65,6 +56,10 @@ nav a {
 
 a:hover {
     background: #f6b93b;
+}
+
+#nav_menu {
+    display: flex;
 }
 
 .title { 
@@ -131,4 +126,3 @@ code,pre {
     margin-right: 6px;
     transform: rotate(90deg);  
   }
-  
