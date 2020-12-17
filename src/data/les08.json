@@ -27,7 +27,7 @@
             }
         } ,
         {
-            "text": "Reduce is a simpler variant, usefull if the type of the value stays the same.<br>Here a little stupid example.",
+            "text": "Reduce is a simpler variant, usefull if the type of the value stays the same.<br>Here a nice example.",
             "code": {
                 "language": "java",
                 "path": "./data/les08/Aggregate03Reduce.java"

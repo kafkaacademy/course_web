@@ -19,8 +19,7 @@ import academy.kafka.entities.Person;
 import academy.kafka.serdes.AppSerdes;
 
 /**
- * a little stupid example , the eldest person with a bsn.
- * More realistic : the eldest person of a province, but then we have to change the key and ... the crash
+ * the eldest person of a province,  we have to change the key and ...
  */
 public class Aggregate03Reduce {
     static Random rn = new Random();// helper, remove in production
@@ -31,13 +30,21 @@ public class Aggregate03Reduce {
         Properties props = new Properties();
         props.put(StreamsConfig.APPLICATION_ID_CONFIG, "streamFilter" + rn.nextInt(10000));
         props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, AppConfig.BootstrapServers);
+        props.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, AppSerdes.String().getClass());
+
         StreamsBuilder builder = new StreamsBuilder();
         KStream<String, Person> persons = builder.stream(Person.topicName,
                 Consumed.with(AppSerdes.String(), AppSerdes.Person()));
-       
-        KGroupedStream<String, Person> grped = persons.groupByKey();
-        KTable<String, Person> tbl = grped.reduce((agrPerson, newPerson) -> {if (newPerson.getBirthday().isBefore(agrPerson.getBirthday())) return newPerson;else return agrPerson;});
-        tbl.toStream().print(Printed.toSysOut());
+
+        KStream<String, Person> personsOnProvince = persons.selectKey((bsn, person) -> person.getProvince().getName());
+        KGroupedStream<String, Person> grped = personsOnProvince.groupByKey();
+        KTable<String, Person> tbl = grped.reduce((agrPerson, newPerson) -> {
+            if (newPerson.getBirthday().isBefore(agrPerson.getBirthday()))
+                return newPerson;
+            else
+                return agrPerson;
+        });
+        tbl.toStream().peek((province,person)->System.out.println(province+" "+person.getLastName()+" "+person.getBirthday()));
 
         final Topology topology = builder.build();
 
