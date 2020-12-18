@@ -10,6 +10,8 @@
     --color-main: rgba(173, 207, 219, 0.904); 
     --color-secondary: rgb(21, 85, 94);
     --color-accent: rgb(196, 212, 224); 
+
+    --box-shadow-default: .1em .1em .5em rgba(0,0,0,.45);
 }
 
 #logocontainer {
@@ -37,7 +39,7 @@
 
 .logo1 {
     padding: 5px;
-    height: 22pt;
+    height: 20pt;
 }
 
 .logo2 {
@@ -51,19 +53,11 @@ body {
     margin: auto;
 }
 
-.paragraph {
-    padding: var(--padding-regular);
-}
-
 .section {
     background: whitesmoke;
     padding: var(--padding-big);
-    width: 70vw;
+    width: 75vw;
     margin: auto; 
-}
-
-.paragraph-uneven {
-    background: var(--color-accent);
 }
 
 #lessons {
@@ -100,11 +94,12 @@ a:hover {
     color: #ffffff;
     text-decoration: none;
 }
+
 .title { 
     font-size: 26pt; 
     font-weight: 700;
-    padding: var(--padding-regular);
 }
+
 .container {
     margin: var(--vertical-spacer);
 }
@@ -112,11 +107,18 @@ a:hover {
     margin: var(--vertical-spacer);
 }
 
-code,pre {
-    font-size: 12pt;
-    background-color: rgb(211, 203, 203);
-    border-radius: 3px;
-    padding: var(--padding-regular);
+pre {
+ /*white-space: pre-wrap;*/
+  
+  overflow-x: auto;
+  font-size: 12pt;
+  background-color: #fff;
+  width: em(440);
+  margin: 4em auto;
+  padding: 0.5em;
+  border-radius: .25em;
+  box-shadow: var(--box-shadow-default)
+   
 }
 
 .buttonBox{

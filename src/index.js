@@ -25,7 +25,7 @@ logotext1.innerText="by";
 logocontainer.appendChild(logotext1);
 
 const logo1 = document.createElement("img");
-logo1.src = "./data/LogoBold.svg";
+logo1.src = "./data/LogoLight.svg";
 logo1.classList="logo1";
 logocontainer.appendChild(logo1);
 
