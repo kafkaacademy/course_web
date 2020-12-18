@@ -4,20 +4,46 @@
     --margin-big: 50px 50px 50px 50px;
     --vertical-spacer: 50px 0px 50px 0px;  
     
-    --padding-regular: 10px 10px 10px 10px; 
+    --padding-regular: 10px 20px; 
+    --padding-big: 25px 50px;
    
     --color-main: rgba(173, 207, 219, 0.904); 
-    --color-secondary: rgb(55, 139, 150);
+    --color-secondary: rgb(21, 85, 94);
     --color-accent: rgb(196, 212, 224); 
 }
+
+#logocontainer {
+    display: flex;
+    align-items: center;
+    padding: var(--padding-regular);
+}
+
+.logotext1 {
+    font-size: 10pt;
+    font-weight: bold;
+    color: rgb(192, 199, 206);
+}
+.logotext2 {
+    font-weight: bold;
+    color: rgb(192, 199, 206);
+    font-size: 10pt;
+}
+
+.lessonnumbertext {
+    color:rgb(192, 199, 206);
+    font-weight: bold;
+    padding: var(--padding-regular);
+}
+
 .logo1 {
-    margin: 25px;
-    height: 25pt;
+    padding: 5px;
+    height: 22pt;
 }
 
 .logo2 {
-    height: 50pt;
-    margin-top: 5px;
+    padding: 5px; 
+    
+   
 }
 
 body {
@@ -31,8 +57,8 @@ body {
 
 .section {
     background: whitesmoke;
-    padding: 50px 50px;
-    width: 75vw;
+    padding: var(--padding-big);
+    width: 70vw;
     margin: auto; 
 }
 
@@ -58,10 +84,22 @@ a:hover {
     background: #f6b93b;
 }
 
-#nav_menu {
+#navbar {
     display: flex;
+    justify-content: space-between;
 }
 
+#nav_menu {
+    display: flex;
+    padding: var(--padding-regular);
+}
+
+.menu-item {
+    font-size: 24pt;
+    padding: 5px;
+    color: #ffffff;
+    text-decoration: none;
+}
 .title { 
     font-size: 26pt; 
     font-weight: 700;
