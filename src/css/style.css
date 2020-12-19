@@ -17,7 +17,7 @@
 #logocontainer {
     display: flex;
     align-items: center;
-    padding: var(--padding-regular);
+    padding: var(--padding-big);
 }
 
 .logotext1 {
@@ -39,12 +39,13 @@
 
 .logo1 {
     padding: 5px;
-    height: 20pt;
+    height: 35px;
 }
 
 .logo2 {
     padding: 5px; 
-    
+    height: 80px;
+    margin: 100px; 
    
 }
 
@@ -85,7 +86,8 @@ a:hover {
 
 #nav_menu {
     display: flex;
-    padding: var(--padding-regular);
+    align-items: center;
+    padding: var(--padding-big);
 }
 
 .menu-item {
@@ -165,4 +167,13 @@ pre {
     display: inline-block;
     margin-right: 6px;
     transform: rotate(90deg);  
+  }
+
+  pre button {
+      background: khaki;
+
+      position: relative;
+      right: 10px;
+      top: 5px;
+    
   }

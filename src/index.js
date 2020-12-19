@@ -25,7 +25,7 @@ logotext1.innerText="by";
 logocontainer.appendChild(logotext1);
 
 const logo1 = document.createElement("img");
-logo1.src = "./data/LogoLight.svg";
+logo1.src = "./data/LogoCondensed.svg";
 logo1.classList="logo1";
 logocontainer.appendChild(logo1);
 
@@ -35,7 +35,7 @@ logotext2.innerText="for";
 logocontainer.appendChild(logotext2);
 
 const logo2 = document.createElement("img");
-logo2.src = "./data/LogoQ.svg";
+logo2.src = "./data/LogoQualogy.svg";
 logo2.classList="logo2";
 logocontainer.appendChild(logo2);
 
