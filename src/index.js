@@ -54,7 +54,7 @@ body.appendChild(lessons);
 
 
 var currentLesson = 0;
-var lastLesson = 6;
+var lastLesson = 9;
 
 const lessenEl = document.getElementById("lessons");
 
@@ -98,6 +98,7 @@ for (let i = 0; i <= lastLesson; i++) {
                     else{
                         parEl.classList.add("paragraph-odd"); 
                      }
+                     parEl.innerText=j;
                   
                     if (p.text != null) {
                        const p1 = document.createElement("p");
@@ -105,10 +106,11 @@ for (let i = 0; i <= lastLesson; i++) {
                         parEl.appendChild(p1);
                         p1.innerHTML = p.text;
                     }
+                    /*
                     if (p.code != null) {
                         myCode(parEl,p.code);
                       
-                    }
+                    }*/
                     if (p.code2 != null) {                        
                         myCode(parEl,p.code2);                  
                     }
