@@ -1,5 +1,5 @@
 {
-    "title": "Also Kafka messages need structure: Json and Json Schema",
+    "title": "Kafka messages need a 'DDL' : a Json Schema",
     "paragraphs": [
         {
             "text": "In real life we have more complex data than strings and numbers.<br>To handle these data we need a structure.<br>The industry standard for this is the popular <a href=\"https://www.json.org/json-en.html\" target=\"_blank\">Json</a>."
@@ -23,12 +23,12 @@
             }
         },
         {
-            "text": "With the popular com.kjetland we can  generate json schema and json out of the pojo. Try:",
+            "text": "With the popular java dependency com.kjetland we can  generate json schema and json out of the pojo. Download, compile and execute the following file:",
             "code": {
                 "language": "java",
                 "path": "./data/les04/PojoToJsonSchema.java"
             },
-            "conclusion": "We can get a neat json schema out of a pojo"
+            "conclusion": "Conclusion : We can get a neat json schema out of a pojo"
         },
         {
             "text": "Now the other  way: we generate the java pojo out of the schema. Set this json in ./resources/schema/Person.json",
@@ -36,7 +36,7 @@
                 "language": "java",
                 "path": "./data/les04/Person.json"
             },
-            "conclusion": "run \"mvn clean install\" and inspect the generated pojo (in ../generated/Person.java).<br>You see it is a complicated java class.<br>Also it is difficult to extend this java. It can be done by a wrapper, but .... we prefer for this course the pojo as the source of the json schema."
+            "conclusion": "run \"mvn clean install\" (this activates the plugin during 'generate-sources') and inspect the generated pojo (in ../generated/Person.java).<br>You see it is a complicated java class.<br>Also it is difficult to extend this java. It can be done by a wrapper, but .... we prefer for this course the previous way with the pojo as the source of the json schema."
         },
         {
             "text": "Conclusion: We prefer the first way : we make the entities in java and, when needed, we generate the schema's. <br>Motivation : <ul><li>We want to keep the java cleaner</li><li>We can enrich the java to our needs.</li><li>We are more used to model things in java than in json schema.</li></ul>However, you can choose of course different."
