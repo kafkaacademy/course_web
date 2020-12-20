@@ -1,11 +1,11 @@
 {
-    "title": "Serializers, for Apache Avro(compressed Json)  and directly for json",
+    "title": "Apache Avro (alternative of JsonSchema) , and (De)Serializers, with Apache Avro and with Json",
     "paragraphs": [
         {
-            "text": "Why Apache Avro? <br>See <a href=\"http://avro.apache.org\" target=\"_blank\">Apache Avro</a>. See  <a href=\"https://www.confluent.io/blog/avro-kafka-data\" target=\"_blank\">Motivation for Apache Avro</a>"
+            "text": "Apache Avro is promoted by Confluent and others. It is used to design Schemas but it's advantage is it also compresses Json.<br>See <a href=\"http://avro.apache.org\" target=\"_blank\">Apache Avro</a>. <br>See Confluent's <a href=\"https://www.confluent.io/blog/avro-kafka-data\" target=\"_blank\">Motivation for Apache Avro</a>.<br>"
         },
         {
-            "text": "Our pom for this course, with avro plugin",
+            "text": "Our pom for this course, with the apache avro plugin",
             "code": {
                 "language": "xml",
                 "path": "./data/les05/pom.xml"
@@ -19,18 +19,16 @@
             }
         },
         {
-            "text": "After mvn install is the java generated, see (original) pom.xml for apache avro plugin",
-            "code": {
-                "language": "json",
-                "path": "./data/les05/AvroPerson.java"
-            }
+            "text": "After 'mvn install' on the project, the java is generated.<br>Study the generated java."
+           
         },
         {
-            "text": "And then we can serizalize and deserialize the generated avro",
+            "text": "And then we can serizalize and deserialize the generated avro, as in this example:",
             "code": {
                 "language": "java",
                 "path": "./data/les05/Main.java"
-            }
+            },
+            "conclusion":"Apache Avro can serialize and deserialize eeasy"
         },
         {
             "text": "The utils we use here:",
@@ -42,46 +40,22 @@
 
         },
         {
-            "text": "Apache Avro serializers are part of the Confluent implementation. However for educational purposes, we can deliver you a set of Avro Serializers (ask for instructions how)"
+            "text": "Apache Avro serializers are part of the Confluent implementation. However for educational purposes, we have our own set of Avro (De)Serializers."
             
         },
         {
-            "text": "How to use Avro in practice with Apache Kafka : the producer:",
+            "text": "Download this zip and unpack it under a directory 'les05'",
             "code": {
-                "language": "java",
-                "path": "./data/les05/AvroProducer.java"
+                "language": "zip",
+                "path": "./data/les05/les05.zip"
             }
         },
         {
-            "text": "And the consumer. <strong>Note how we add the (de)serializers to the properties of Kafka, this is the way as it is meant by Kafka.</strong>",
-            "code": {
-                "language": "java",
-                "path": "./data/les05/AvroConsumer.java"
-            },
-            "conclusion": "Conclusion : we can serialize and deserialize the java classes with Apache Kafka fluently."
+            "text": "Study the different producers and consumers for Apache Avro."
         },        
         {
-            "text": "We can do the same with Json (de)serializers, the class that we use for this:",
-            "code": {
-                "language": "java",
-                "path": "./data/les05/JsonPerson.java"
-            }
-        },
-        
-        {
-            "text": "The producer: ",
-            "code": {
-                "language": "java",
-                "path": "./data/les05/JsonProducer.java"
-            }
-        },
-        
-        {
-            "text": "The consumer:",
-            "code": {
-                "language": "java",
-                "path": "./data/les05/JsonConsumer.java"
-            }
+            "text": "Study the different producers and consumers for Json serializers and deserializers. We need it later!"
         }
+           
     ]
 }

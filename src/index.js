@@ -53,7 +53,7 @@ lessons.id = "lessons";
 body.appendChild(lessons);
 
 
-var currentLesson = 0;
+var currentLesson = 5;
 var lastLesson = 9;
 
 const lessenEl = document.getElementById("lessons");

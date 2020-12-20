@@ -1,13 +1,13 @@
 {
     "title": "There are 2 popular docker images for Apache Kafka: Wurstmeister and Bitnami",
     "paragraphs": [
-{
-        "text": "Download this zip and unpack it under a directory 'les01'",
-        "code": {
-            "language": "zip",
-            "path": "./data/les01/les01.zip"
-        }},
-     
+        {
+            "text": "Download this zip and unpack it under a directory 'les01'",
+            "code": {
+                "language": "zip",
+                "path": "./data/les01/les01.zip"
+            }
+        },
         {
             "text": "And from now on you can start Apache Kafka",
             "code": {
@@ -67,6 +67,5 @@
                 "path": "./data/les01/runthiscommandfor3brokers.cmd"
             }
         }
-
     ]
 }
