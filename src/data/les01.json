@@ -2,7 +2,7 @@
     "title": "There are 2 popular docker images for Apache Kafka: Wurstmeister and Bitnami",
     "paragraphs": [
 {
-        "text": "Download this zip and unpack it under an directory les01",
+        "text": "Download this zip and unpack it under a directory 'les01'",
         "code": {
             "language": "zip",
             "path": "./data/les01/les01.zip"
@@ -39,7 +39,13 @@
                 "code": "docker exec -it kafka /bin/sh"
             }
         },
-       
+        {
+            "text": "The code for bitname",
+            "code": {
+                "language": "yml",
+                "path": "./data/les01/docker-compose.yml"
+            }
+        },
         {
             "text": "The code for wurstmeister",
             "code": {
