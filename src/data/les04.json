@@ -39,7 +39,7 @@
             "conclusion": "run \"mvn clean install\" (this activates the plugin during 'generate-sources') and inspect the generated pojo (in ../generated/Person.java).<br>You see it is a complicated java class.<br>Also it is difficult to extend this java. It can be done by a wrapper, but .... we prefer for this course the previous way with the pojo as the source of the json schema."
         },
         {
-            "text": "Conclusion: We prefer the first way : we make the entities in java and, when needed, we generate the schema's. <br>Motivation : <ul><li>We want to keep the java cleaner</li><li>We can enrich the java to our needs.</li><li>We are more used to model things in java than in json schema.</li></ul>However, you can choose of course different."
+            "text": "Conclusion: We prefer the first way : we make the entities in java and, when needed, we generate the schema's. <br>Motivation : <ul><li>We want to keep the java cleaner</li><li>We can enrich the java to our needs.</li><li>We are more used to model (calculate etc.) things in java than in json schema.</li></ul>However, you can choose of course different."
         }
     ]
 }
