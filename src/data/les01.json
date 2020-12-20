@@ -1,15 +1,13 @@
 {
     "title": "There are 2 popular docker images for Apache Kafka: Wurstmeister and Bitnami",
     "paragraphs": [
-        {
-            "text": "<b>Wurstmeister</b> Install Docker from  <a href=\"https://www.youtube.com/watch?v=WnlX7w4lHvM\" target=\"_blank\">Instruction video for Wurstmeister</a>.<br>See <a href=\"http://selftuts.com/kafaka-setup-using-docker-compose\">here</a> for the code"
-        },
-        {
-            "text": "Or <b>Bitnami</b> according to this <a href=\"https://www.youtube.com/watch?v=2pBxoal7DY4\" target=\"_blank\">Instruction video Bitnami</a>.<br>See <a href=\"https://github.com/bitnami/bitnami-docker-kafka\">here</a> for the code"
-        },
-        {
-            "text": "And you have created this docker-compose.yml in this directory (les01) ,or choose one place, you will need "
-        },
+{
+        "text": "Download this zip and unpack it under an directory les01",
+        "code": {
+            "language": "zip",
+            "path": "./data/les01/les01.zip"
+        }},
+     
         {
             "text": "And from now on you can start Apache Kafka",
             "code": {
@@ -41,16 +39,7 @@
                 "code": "docker exec -it kafka /bin/sh"
             }
         },
-        {
-            "text": "<h3>Result expected: You should always be able to start and stop Apache Kafka </h3>Conclusions:<ul><li>Using Wurstmeister or Bitnami in this way, Apache Kafka behaves as a local installation (hostnames/port as in documentation)</li><li>Restart: does  Apache Kafka keep old data at restart? Has to be researched later!</li></ul>"
-        },
-        {
-            "text": "The code for bitnami",
-            "code": {
-                "language": "yml",
-                "path": "./data/les01/docker-compose.yml"
-            }
-        },
+       
         {
             "text": "The code for wurstmeister",
             "code": {
@@ -64,6 +53,14 @@
                 "language": "txt",
                 "path": "./data/les01/README.txt"
             }
+        },
+        {
+            "text": "And later to start a cluster with 3 brokers",
+            "code": {
+                "language": "cmd",
+                "path": "./data/les01/runthiscommandfor3brokers.cmd"
+            }
         }
+
     ]
 }

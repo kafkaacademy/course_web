@@ -11,8 +11,13 @@
             }
         },
         {
-            "text": "Also needed: java (best java 15), npm, and an IDE (Visual Code)",
-            "conclusion": "<h3>Result expected : docker and docker-compose are installed, and other tools.</h3>"
+            "text": "Also you neede: java (java 14), npm, and an IDE (Visual Code)"
+        },
+        {
+            "text": "<b>Wurstmeister</b> Install Wurstmeisers DockerCompose file from  <a href=\"https://www.youtube.com/watch?v=WnlX7w4lHvM\" target=\"_blank\">Instruction video for Wurstmeister</a>.<br>See <a href=\"http://selftuts.com/kafaka-setup-using-docker-compose\">here</a> for the code"
+        },
+        {
+            "text": "Or <b>Bitnami'DockerCompose file</b> according to this <a href=\"https://www.youtube.com/watch?v=2pBxoal7DY4\" target=\"_blank\">Instruction video Bitnami</a>.<br>See <a href=\"https://github.com/bitnami/bitnami-docker-kafka\">here</a> for the code"
         }
     ]
 }
