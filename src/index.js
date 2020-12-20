@@ -53,8 +53,8 @@ lessons.id = "lessons";
 body.appendChild(lessons);
 
 
-var currentLesson = 7;
-var lastLesson = 9;
+var currentLesson = 0;
+var lastLesson = 6;
 
 const lessenEl = document.getElementById("lessons");
 
@@ -137,7 +137,7 @@ function myCode(parEl, p_code) {
         const pre = document.createElement("pre");
         parEl.classList = "code";
         parEl.appendChild(pre);
-        pre.innerText = p_code.code;
+        pre.innerText = p_code.code ;
     }
     else {
         const language = p_code.language;
@@ -237,8 +237,8 @@ function getCode(language, url, root) {
         const request = async () => {
             const response = await fetch(url);
             const les = await response.text();
-            const testEl = document.getElementById(root);
             const pre = document.createElement("pre");
+
             pre.innerText = les;
             const btn = document.createElement("button");
             btn.innerText = "copy to clipboard";
