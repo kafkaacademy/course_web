@@ -14,10 +14,19 @@
     --box-shadow-default: .1em .1em .5em rgba(0,0,0,.45);
 }
 
+.paragraph-even {
+    background: #5cb3ce;
+}
+
+.paragraph-uneven {
+    background: #68ceec;
+   
+}
+
 #logocontainer {
     display: flex;
     align-items: center;
-    padding: var(--padding-big);
+    padding: var(--padding-regular);
 }
 
 .logotext1 {
@@ -45,7 +54,7 @@
 .logo2 {
     padding: 5px; 
     height: 80px;
-    margin: 100px; 
+     
    
 }
 
