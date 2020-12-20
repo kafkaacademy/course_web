@@ -133,8 +133,8 @@ pre {
   margin: 4em auto;
   padding: 0.5em;
   border-radius: .25em;
-  box-shadow: var(--box-shadow-default)
-   
+  box-shadow: var(--box-shadow-default);
+  position: relative;   
 }
 
 .buttonBox{
@@ -184,11 +184,8 @@ pre {
   }
 
   pre button {
-      background: khaki;
-
-      position: relative;
-      right: 10px;
-      top: 5px;
-    
+    position: absolute;
+    top: 15px;
+    right: 15px;
   }
 
