@@ -14,13 +14,13 @@
             "conclusion": "Add these to your project and run consumer and producer.<br>Note: <ul><li>The consumer sees only new messages (by default)!</li><li>So start consumer first, and then producer.</li></ul>"
         },
         {
-            "text": "Exercises on Producer: Study Apache Kafka website on controlled producing: <ol><li>send with callback ('aangetekend versturen') <a href='https://kafka.apache.org/26/javadoc/index.html?org/apache/kafka/clients/producer/KafkaProducer.html'>See here</a></li><li>protection against more than once producing. See <a href='https://www.cloudkarafka.com/blog/2019-04-10-apache-kafka-idempotent-producer-avoiding-message-duplication.html'>here</a> and <a href='https://www.confluent.io/blog/exactly-once-semantics-are-possible-heres-how-apache-kafka-does-it/'>here</a></li></ol>"   
+            "text": "Extra exercises on Producer: Study Apache Kafka website on producing: <ol><li>send with callback ('aangetekend versturen') <a href='https://kafka.apache.org/26/javadoc/index.html?org/apache/kafka/clients/producer/KafkaProducer.html' target='_blank'>See Documentation</a></li><li>Or try out the transaction specified there</li></ol>"   
         },
         {
-            "text": "Exercises on Consuming: Study  Apache Kafka website on controlled consuming: <a href='https://kafka.apache.org/26/javadoc/index.html?org/apache/kafka/clients/consumer/KafkaConsumer.html'>See here</a><ol><li>Commiting the receive</li><li>protection against more than once receiving.</li></ol>"
+            "text": "Extra exercises on Consuming: Study Apache Kafka website on consuming: <a href='https://kafka.apache.org/26/javadoc/index.html?org/apache/kafka/clients/consumer/KafkaConsumer.html' target='_blank'>See here</a><ol><li>Understand what is Committing on the consumer side.</li></ol> For more info on this see <a href='https://www.baeldung.com/kafka-exactly-once' target='_blank'>Baeldung</a>"
         },
         {
-            "text": "<h3>Despite all your efforts to make all idempotent if you produce by mistake a transaction more than once yourself, it will be received more than once by Apache Kafka , so e.g. a payment might be processed twice. We will see later how to protect against this.</h3>"
+            "text": "We will do this more serious later, idempotency is an important aspect of building business critical applications in Kafka."
         }
     ]
 }

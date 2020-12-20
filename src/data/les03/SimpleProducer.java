@@ -15,12 +15,9 @@ import academy.kafka.config.AppConfig;
 public final class SimpleProducer {  
  
     static final Logger logger = LoggerFactory.getLogger(SimpleProducer.class);
-    static final public String topic="les03-multi-topic";
+    static final public String topic="les03-topic";
       public static void main(String[] args) {
-      
-        academy.kafka.utils.KafkaUtils.createTopic(topic, 1, 1);
-      //  academy.kafka.utils.KafkaUtils.createTopic(topic, 3, 3);
-     
+       
         Properties props = new Properties();
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,AppConfig.BootstrapServers);
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, org.apache.kafka.common.serialization.StringSerializer.class);
