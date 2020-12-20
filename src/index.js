@@ -20,23 +20,23 @@ logocontainer.id = "logocontainer";
 navbar.appendChild(logocontainer);
 
 const logotext1 = document.createElement("p");
-logotext1.classList = "logotext1";
+logotext1.classList.add("logotext1");
 logotext1.innerText = "by";
 logocontainer.appendChild(logotext1);
 
 const logo1 = document.createElement("img");
 logo1.src = "./data/LogoCondensed.svg";
-logo1.classList = "logo1";
+logo1.classList.add("logo1");
 logocontainer.appendChild(logo1);
 
 const logotext2 = document.createElement("p");
-logotext2.classList = "logotext2";
+logotext2.classList.add("logotext2");
 logotext2.innerText = "for";
 logocontainer.appendChild(logotext2);
 
 const logo2 = document.createElement("img");
 logo2.src = "./data/LogoQualogy.svg";
-logo2.classList = "logo2";
+logo2.classList.add("logo2");
 logocontainer.appendChild(logo2);
 
 const menu = document.createElement("div");
@@ -44,7 +44,7 @@ menu.id = "nav_menu";
 navbar.appendChild(menu);
 
 const lessonnumbertext = document.createElement("p");
-lessonnumbertext.classList = "lessonnumbertext";
+lessonnumbertext.classList.add("lessonnumbertext");
 lessonnumbertext.innerText = "Lesson #";
 menu.appendChild(lessonnumbertext);
 
@@ -54,7 +54,7 @@ body.appendChild(lessons);
 
 
 var currentLesson = 0;
-var lastLesson = 6;
+var lastLesson = 9;
 
 const lessenEl = document.getElementById("lessons");
 
@@ -63,12 +63,12 @@ for (let i = 0; i <= lastLesson; i++) {
     if (i < 10) les = "les0" + i;
     const teller = i;
     const lesEl = document.createElement("section");
-    lesEl.classList = "section";
+    lesEl.classList.add("section");
     lessenEl.appendChild(lesEl);
     lesEl.id = teller;
     lesEl.appendChild(createButtons(teller));
     const menuItem = document.createElement("a");
-    menuItem.classList = "menu-item";
+    menuItem.classList.add("menu-item");
     menuItem.innerText = teller + " ";
     menuItem.href = "#";
     menuItem.addEventListener("click", () => toLesson(teller));
@@ -80,7 +80,7 @@ for (let i = 0; i <= lastLesson; i++) {
             const response = await fetch(url);
             const les = await response.json();
             const title = document.createElement("h1");
-            title.classList = "title";
+            title.classList.add("title");
 
             title.innerHTML = "Lesson " + teller + " " + les.title;
             lesEl.appendChild(title);
@@ -91,17 +91,17 @@ for (let i = 0; i <= lastLesson; i++) {
                     if (p == null) continue;
                     const parEl = document.createElement("div");
                     lesEl.appendChild(parEl);
-                    parEl.classList = ["paragraph"];
+                    parEl.classList.add("paragraph");
                     if (j % 2 == 0) {
                         parEl.classList.add("paragraph-even");
                     }
                     else {
                         parEl.classList.add("paragraph-odd");
                     }
-                  
+                
                     if (p.text != null) {
                         const p1 = document.createElement("p");
-                        p1.classList = "paragraph";
+                        p1.classList.add("paragraph");
                         parEl.appendChild(p1);
                         p1.innerHTML = p.text;
                     }
@@ -115,7 +115,7 @@ for (let i = 0; i <= lastLesson; i++) {
                     }
                     if (p.conclusion != null) {
                         const p1 = document.createElement("p");
-                        p1.classList = "conclusion";
+                        p1.classList.add("conclusion");
                         parEl.appendChild(p1);
                         p1.innerHTML = p.conclusion;
                     }
@@ -130,20 +130,19 @@ for (let i = 0; i <= lastLesson; i++) {
         continue;
         console.log(error);
     }
-
 }
 
 function myCode(parEl, p_code) {
     if (p_code.code != null) {    //inline code                 
         const pre = document.createElement("pre");
-        parEl.classList = "code";
+        parEl.classList.add("code");
         parEl.appendChild(pre);
         pre.innerText = p_code.code;
         return;
 
     }
-  //  alert(JSON.stringify(p_code.path));
-
+  
+   
     const language = p_code.language;
     const path = p_code.path;
     let index = path.lastIndexOf("/");
@@ -152,42 +151,42 @@ function myCode(parEl, p_code) {
     const fname = path.substring(index);
     if (language === 'zip') {
         const div = document.createElement("div");
-        div.classList = "download";
+        div.classList.add("download");
         parEl.appendChild(div);
         const a = document.createElement("a");
         a.href = p_code.path;
         a.innerText = "download " + fname;
         div.appendChild(a);
         a.target = "_blank";
+        return;
     }
-    else {
-        const div = document.createElement("div");
-        parEl.appendChild(div);
-        const span = document.createElement("span");
-        div.appendChild(span);
-        span.className = "caret";
-        span.innerText = "show " + fname;
 
-        const pre = document.createElement("pre");
-        div.appendChild(pre);
-        pre.style.display = "none";
-        getCode(language, path, pre);
-        span.addEventListener("click", () => {
-            if (pre.style.display === "none") {
-                pre.style.display = "block"
-                span.className = "caret-down"
-                span.innerText = "hide " + fname;
-            }
-            else {
-                pre.style.display = "none"
-                span.className = "caret";
-                span.innerText = "show " + fname;
-            }
-        });
+    const div = document.createElement("div");
+    parEl.appendChild(div);
+    const span = document.createElement("span");
+    div.appendChild(span);
+    span.className = "caret";
+    span.innerText = "show " + fname;
+
+    const pre = document.createElement("pre");
+    div.appendChild(pre);
+    pre.style.display = "none";
+    getCode(path, pre);
+    span.addEventListener("click", () => {
+        if (pre.style.display === "none") {
+            pre.style.display = "block"
+            span.className = "caret-down"
+            span.innerText = "hide " + fname;
+        }
+        else {
+            pre.style.display = "none"
+            span.className = "caret";
+            span.innerText = "show " + fname;
+        }
+    });
 
 
-    }
-    function getCode(language, url, root) {
+    function getCode(url, root) {
         try {
             const request = async () => {
                 const response = await fetch(url);
@@ -202,7 +201,6 @@ function myCode(parEl, p_code) {
         } catch (error) {
             console.log(error);
         }
-
     }
 }
 
