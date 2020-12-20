@@ -20,23 +20,23 @@ logocontainer.id = "logocontainer";
 navbar.appendChild(logocontainer);
 
 const logotext1 = document.createElement("p");
-logotext1.classList="logotext1";
-logotext1.innerText="by";    
+logotext1.classList = "logotext1";
+logotext1.innerText = "by";
 logocontainer.appendChild(logotext1);
 
 const logo1 = document.createElement("img");
 logo1.src = "./data/LogoCondensed.svg";
-logo1.classList="logo1";
+logo1.classList = "logo1";
 logocontainer.appendChild(logo1);
 
 const logotext2 = document.createElement("p");
-logotext2.classList="logotext2";
-logotext2.innerText="for";    
+logotext2.classList = "logotext2";
+logotext2.innerText = "for";
 logocontainer.appendChild(logotext2);
 
 const logo2 = document.createElement("img");
 logo2.src = "./data/LogoQualogy.svg";
-logo2.classList="logo2";
+logo2.classList = "logo2";
 logocontainer.appendChild(logo2);
 
 const menu = document.createElement("div");
@@ -44,8 +44,8 @@ menu.id = "nav_menu";
 navbar.appendChild(menu);
 
 const lessonnumbertext = document.createElement("p");
-lessonnumbertext.classList="lessonnumbertext";
-lessonnumbertext.innerText="Lesson #";    
+lessonnumbertext.classList = "lessonnumbertext";
+lessonnumbertext.innerText = "Lesson #";
 menu.appendChild(lessonnumbertext);
 
 const lessons = document.createElement("div");
@@ -88,31 +88,31 @@ for (let i = 0; i <= lastLesson; i++) {
             if (les.paragraphs != null) {
                 for (let j = 0; j < les.paragraphs.length; j++) {
                     const p = les.paragraphs[j];
-                   if (p == null) continue;
+                    if (p == null) continue;
                     const parEl = document.createElement("div");
                     lesEl.appendChild(parEl);
                     parEl.classList = ["paragraph"];
-                    if (j%2==0){
-                        parEl.classList.add("paragraph-even"); 
-                    }                
-                    else{
-                        parEl.classList.add("paragraph-odd"); 
-                     }
-                     parEl.innerText=j;
-                  
+                    if (j % 2 == 0) {
+                        parEl.classList.add("paragraph-even");
+                    }
+                    else {
+                        parEl.classList.add("paragraph-odd");
+                    }
+                    parEl.innerText = j;
+
                     if (p.text != null) {
-                       const p1 = document.createElement("p");
+                        const p1 = document.createElement("p");
                         p1.classList = "paragraph";
                         parEl.appendChild(p1);
                         p1.innerHTML = p.text;
                     }
-                    /*
+                    
                     if (p.code != null) {
                         myCode(parEl,p.code);
                       
-                    }*/
-                    if (p.code2 != null) {                        
-                        myCode(parEl,p.code2);                  
+                    }
+                    if (p.code2 != null) {
+                        myCode(parEl, p.code2);
                     }
                     if (p.conclusion != null) {
                         const p1 = document.createElement("p");
@@ -139,7 +139,7 @@ function myCode(parEl, p_code) {
         const pre = document.createElement("pre");
         parEl.classList = "code";
         parEl.appendChild(pre);
-        pre.innerText = p_code.code ;
+        pre.innerText = p_code.code;
     }
     else {
         const language = p_code.language;
@@ -148,27 +148,27 @@ function myCode(parEl, p_code) {
         if (index < 0) index = 0;
         else index++;
         const fname = path.substring(index);
-        const div = document.createElement("div");
-        div.classList = "download";
-        parEl.appendChild(div);
         if (language === 'zip') {
+            const div = document.createElement("div");
+            div.classList = "download";
+            parEl.appendChild(div);
             const a = document.createElement("a");
             a.href = p_code.path;
             a.innerText = "download " + fname;
             div.appendChild(a);
             a.target = "_blank";
-
         }
         else {
+            const div = document.createElement("div");
+            parEl.appendChild(div);
             const span = document.createElement("span");
             div.appendChild(span);
+            span.className = "caret";
+            span.innerText = "show " + fname;
 
             const pre = document.createElement("pre");
             div.appendChild(pre);
             pre.style.display = "none";
-            span.className = "caret";
-            span.innerText = "show " + fname;
-
             getCode(language, path, pre);
             span.addEventListener("click", () => {
                 if (pre.style.display === "none") {
@@ -189,20 +189,17 @@ function myCode(parEl, p_code) {
             const request = async () => {
                 const response = await fetch(url);
                 const les = await response.text();
-                const pre = document.createElement("pre");
-                 
-                pre.innerText = les;
+                root.innerText = les;
                 const btn = document.createElement("button");
                 btn.innerText = "copy to clipboard";
                 btn.addEventListener("click", () => copyToClipboard(les));
-                pre.appendChild(btn);
-                root.appendChild(pre);
-            }
+                root.appendChild(btn);
+           }
             request();
         } catch (error) {
             console.log(error);
         }
-    
+
     }
 }
 
