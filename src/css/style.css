@@ -4,20 +4,49 @@
     --margin-big: 50px 50px 50px 50px;
     --vertical-spacer: 50px 0px 50px 0px;  
     
-    --padding-regular: 10px 10px 10px 10px; 
+    --padding-regular: 10px 20px; 
+    --padding-big: 25px 50px;
    
     --color-main: rgba(173, 207, 219, 0.904); 
-    --color-secondary: rgb(55, 139, 150);
+    --color-secondary: rgb(21, 85, 94);
     --color-accent: rgb(196, 212, 224); 
+
+    --box-shadow-default: .1em .1em .5em rgba(0,0,0,.45);
 }
+
+#logocontainer {
+    display: flex;
+    align-items: center;
+    padding: var(--padding-big);
+}
+
+.logotext1 {
+    font-size: 10pt;
+    font-weight: bold;
+    color: rgb(192, 199, 206);
+}
+.logotext2 {
+    font-weight: bold;
+    color: rgb(192, 199, 206);
+    font-size: 10pt;
+}
+
+.lessonnumbertext {
+    color:rgb(192, 199, 206);
+    font-weight: bold;
+    padding: var(--padding-regular);
+}
+
 .logo1 {
-    margin: 25px;
-    height: 25pt;
+    padding: 5px;
+    height: 35px;
 }
 
 .logo2 {
-    height: 50pt;
-    margin-top: 5px;
+    padding: 5px; 
+    height: 80px;
+    margin: 100px; 
+   
 }
 
 body {
@@ -25,19 +54,11 @@ body {
     margin: auto;
 }
 
-.paragraph {
-    padding: var(--padding-regular);
-}
-
 .section {
     background: whitesmoke;
-    padding: 50px 50px;
+    padding: var(--padding-big);
     width: 75vw;
     margin: auto; 
-}
-
-.paragraph-uneven {
-    background: var(--color-accent);
 }
 
 #lessons {
@@ -58,15 +79,29 @@ a:hover {
     background: #f6b93b;
 }
 
+#navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
 #nav_menu {
     display: flex;
+    align-items: center;
+    padding: var(--padding-big);
+}
+
+.menu-item {
+    font-size: 24pt;
+    padding: 5px;
+    color: #ffffff;
+    text-decoration: none;
 }
 
 .title { 
     font-size: 26pt; 
     font-weight: 700;
-    padding: var(--padding-regular);
 }
+
 .container {
     margin: var(--vertical-spacer);
 }
@@ -74,11 +109,18 @@ a:hover {
     margin: var(--vertical-spacer);
 }
 
-code,pre {
-    font-size: 12pt;
-    background-color: rgb(211, 203, 203);
-    border-radius: 3px;
-    padding: var(--padding-regular);
+pre {
+ /*white-space: pre-wrap;*/
+  
+  overflow-x: auto;
+  font-size: 12pt;
+  background-color: #fff;
+  width: em(440);
+  margin: 4em auto;
+  padding: 0.5em;
+  border-radius: .25em;
+  box-shadow: var(--box-shadow-default)
+   
 }
 
 .buttonBox{
@@ -125,4 +167,13 @@ code,pre {
     display: inline-block;
     margin-right: 6px;
     transform: rotate(90deg);  
+  }
+
+  pre button {
+      background: khaki;
+
+      position: relative;
+      right: 10px;
+      top: 5px;
+    
   }

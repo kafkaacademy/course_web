@@ -11,23 +11,42 @@ head.appendChild(title);
 
 const body = document.getElementsByTagName("body")[0];
 
-const menu = document.createElement("div");
-menu.id = "nav_menu";
-body.appendChild(menu);
+const navbar = document.createElement("div");
+navbar.id = "navbar";
+body.appendChild(navbar);
 
 const logocontainer = document.createElement("div");
 logocontainer.id = "logocontainer";
-menu.appendChild(logocontainer);
+navbar.appendChild(logocontainer);
+
+const logotext1 = document.createElement("p");
+logotext1.classList="logotext1";
+logotext1.innerText="by";    
+logocontainer.appendChild(logotext1);
 
 const logo1 = document.createElement("img");
-logo1.src = "./data/LogoBold.svg";
+logo1.src = "./data/LogoCondensed.svg";
 logo1.classList="logo1";
 logocontainer.appendChild(logo1);
 
+const logotext2 = document.createElement("p");
+logotext2.classList="logotext2";
+logotext2.innerText="for";    
+logocontainer.appendChild(logotext2);
+
 const logo2 = document.createElement("img");
-logo2.src = "./data/LogoQ.svg";
+logo2.src = "./data/LogoQualogy.svg";
 logo2.classList="logo2";
 logocontainer.appendChild(logo2);
+
+const menu = document.createElement("div");
+menu.id = "nav_menu";
+navbar.appendChild(menu);
+
+const lessonnumbertext = document.createElement("p");
+lessonnumbertext.classList="lessonnumbertext";
+lessonnumbertext.innerText="Lesson #";    
+menu.appendChild(lessonnumbertext);
 
 const lessons = document.createElement("div");
 lessons.id = "lessons";
