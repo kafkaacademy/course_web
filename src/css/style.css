@@ -1,9 +1,11 @@
 :root { 
     font-family: sans-serif;
+   
     --margin-regular: 25px 25px 25px 25px;
     --margin-big: 50px 50px 50px 50px;
-    --vertical-spacer: 50px 0px 50px 0px;  
-    
+    --vertical-spacer-big: 50px 0px 50px 0px;  
+    --vertical-spacer: 25px 0px; 
+
     --padding-regular: 10px 20px; 
     --padding-big: 25px 50px;
    
@@ -14,12 +16,16 @@
     --box-shadow-default: .1em .1em .5em rgba(0,0,0,.45);
 }
 
+.paragraph {
+    margin: var(--vertical-spacer);
+}
+
 .paragraph-even {
-    background: #5cb3ce;
+    background: rgb(17 114 144 / 10%);
 }
 
 .paragraph-odd {
-    background: #68ceec;   
+    background: rgb(52 201 245 / 15%);  
 }
 
 #logocontainer {
@@ -32,11 +38,13 @@
     font-size: 10pt;
     font-weight: bold;
     color: rgb(192, 199, 206);
+    align-self: center;
 }
 .logotext2 {
     font-weight: bold;
     color: rgb(192, 199, 206);
     font-size: 10pt;
+    align-self: center;
 }
 
 .lessonnumbertext {
@@ -46,13 +54,14 @@
 }
 
 .logo1 {
+    margin-right: 10px; 
     padding: 5px;
     height: 35px;
 }
 
 .logo2 {
     padding: 5px; 
-    height: 80px;
+    height: 90px;
      
    
 }
@@ -70,7 +79,7 @@ body {
 }
 
 #lessons {
-    margin: var(--vertical-spacer);
+    margin: var(--vertical-spacer-big);
 }
 
 nav {
@@ -90,6 +99,8 @@ a:hover {
 #navbar {
     display: flex;
     justify-content: space-between;
+    
+    align-items: baseline;
 }
 
 #nav_menu {
@@ -111,10 +122,10 @@ a:hover {
 }
 
 .container {
-    margin: var(--vertical-spacer);
+    margin: var(--vertical-spacer-big);
 }
 .code {
-    margin: var(--vertical-spacer);
+    margin: var(--vertical-spacer-big);
 }
 
 pre {
@@ -127,8 +138,8 @@ pre {
   margin: 4em auto;
   padding: 0.5em;
   border-radius: .25em;
-  box-shadow: var(--box-shadow-default)
-   
+  box-shadow: var(--box-shadow-default);
+  position: relative;   
 }
 
 .buttonBox{
@@ -156,7 +167,7 @@ pre {
 }
 
 .button-next:active, .button-previous:active {
-    background: yellow; 
+    background: rgb(173, 207, 219); 
 }
 .button-next {
     margin-left: auto;
@@ -178,10 +189,8 @@ pre {
   }
 
   pre button {
-      background: khaki;
-
-      position: relative;
-      right: 10px;
-      top: 5px;
-    
+    position: absolute;
+    top: 15px;
+    right: 15px;
   }
+
