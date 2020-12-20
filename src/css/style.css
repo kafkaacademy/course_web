@@ -1,9 +1,11 @@
 :root { 
     font-family: sans-serif;
+   
     --margin-regular: 25px 25px 25px 25px;
     --margin-big: 50px 50px 50px 50px;
-    --vertical-spacer: 50px 0px 50px 0px;  
-    
+    --vertical-spacer-big: 50px 0px 50px 0px;  
+    --vertical-spacer: 25px 0px; 
+
     --padding-regular: 10px 20px; 
     --padding-big: 25px 50px;
    
@@ -14,12 +16,16 @@
     --box-shadow-default: .1em .1em .5em rgba(0,0,0,.45);
 }
 
+.paragraph {
+    margin: var(--vertical-spacer);
+}
+
 .paragraph-even {
-    background: #5cb3ce;
+    background: rgb(17 114 144 / 10%);
 }
 
 .paragraph-odd {
-    background: #68ceec;   
+    background: rgb(52 201 245 / 15%);  
 }
 
 #logocontainer {
@@ -70,7 +76,7 @@ body {
 }
 
 #lessons {
-    margin: var(--vertical-spacer);
+    margin: var(--vertical-spacer-big);
 }
 
 nav {
@@ -111,10 +117,10 @@ a:hover {
 }
 
 .container {
-    margin: var(--vertical-spacer);
+    margin: var(--vertical-spacer-big);
 }
 .code {
-    margin: var(--vertical-spacer);
+    margin: var(--vertical-spacer-big);
 }
 
 pre {
@@ -185,3 +191,4 @@ pre {
       top: 5px;
     
   }
+
