@@ -88,19 +88,19 @@ for (let i = 0; i <= lastLesson; i++) {
             if (les.paragraphs != null) {
                 for (let j = 0; j < les.paragraphs.length; j++) {
                     const p = les.paragraphs[j];
-                    if (p == null) continue;
+                   if (p == null) continue;
                     const parEl = document.createElement("div");
-                    parEl.classList = ["paragraph"];
-                    if (j%2==0)
-                        parEl.classList.add("paragraph-even");                  
-                    
-                    else
-                    parEl.classList.add("paragraph-uneven");                   
-                  
                     lesEl.appendChild(parEl);
-
+                    parEl.classList = ["paragraph"];
+                    if (j%2==0){
+                        parEl.classList.add("paragraph-even"); 
+                    }                
+                    else{
+                        parEl.classList.add("paragraph-odd"); 
+                     }
+                  
                     if (p.text != null) {
-                        const p1 = document.createElement("p");
+                       const p1 = document.createElement("p");
                         p1.classList = "paragraph";
                         parEl.appendChild(p1);
                         p1.innerHTML = p.text;
