@@ -182,6 +182,26 @@ function myCode(parEl, p_code) {
             });
         }
     }
+    function getCode(language, url, root) {
+        try {
+            const request = async () => {
+                const response = await fetch(url);
+                const les = await response.text();
+                const pre = document.createElement("pre");
+                 
+                pre.innerText = les;
+                const btn = document.createElement("button");
+                btn.innerText = "copy to clipboard";
+                btn.addEventListener("click", () => copyToClipboard(les));
+                pre.appendChild(btn);
+                root.appendChild(pre);
+            }
+            request();
+        } catch (error) {
+            console.log(error);
+        }
+    
+    }
 }
 
 function createButtons(teller) {
@@ -232,26 +252,7 @@ function setCurrentLesson() {
         tmp.style.display = "block";
 }
 
-function getCode(language, url, root) {
-    try {
-        const request = async () => {
-            const response = await fetch(url);
-            const les = await response.text();
-            const pre = document.createElement("pre");
 
-            pre.innerText = les;
-            const btn = document.createElement("button");
-            btn.innerText = "copy to clipboard";
-            btn.addEventListener("click", () => copyToClipboard(les));
-            pre.appendChild(btn);
-            root.appendChild(pre);
-        }
-        request();
-    } catch (error) {
-        console.log(error);
-    }
-
-}
 
 function copyToClipboard(text) {
     if (navigator.clipboard) { // default: modern asynchronous API
