@@ -98,18 +98,17 @@ for (let i = 0; i <= lastLesson; i++) {
                     else {
                         parEl.classList.add("paragraph-odd");
                     }
-                    parEl.innerText = j;
-
+                  
                     if (p.text != null) {
                         const p1 = document.createElement("p");
                         p1.classList = "paragraph";
                         parEl.appendChild(p1);
                         p1.innerHTML = p.text;
                     }
-                    
+
                     if (p.code != null) {
-                        myCode(parEl,p.code);
-                      
+                        myCode(parEl, p.code);
+
                     }
                     if (p.code2 != null) {
                         myCode(parEl, p.code2);
@@ -140,49 +139,53 @@ function myCode(parEl, p_code) {
         parEl.classList = "code";
         parEl.appendChild(pre);
         pre.innerText = p_code.code;
+        return;
+
+    }
+  //  alert(JSON.stringify(p_code.path));
+
+    const language = p_code.language;
+    const path = p_code.path;
+    let index = path.lastIndexOf("/");
+    if (index < 0) index = 0;
+    else index++;
+    const fname = path.substring(index);
+    if (language === 'zip') {
+        const div = document.createElement("div");
+        div.classList = "download";
+        parEl.appendChild(div);
+        const a = document.createElement("a");
+        a.href = p_code.path;
+        a.innerText = "download " + fname;
+        div.appendChild(a);
+        a.target = "_blank";
     }
     else {
-        const language = p_code.language;
-        const path = p_code.path;
-        let index = path.lastIndexOf("/");
-        if (index < 0) index = 0;
-        else index++;
-        const fname = path.substring(index);
-        if (language === 'zip') {
-            const div = document.createElement("div");
-            div.classList = "download";
-            parEl.appendChild(div);
-            const a = document.createElement("a");
-            a.href = p_code.path;
-            a.innerText = "download " + fname;
-            div.appendChild(a);
-            a.target = "_blank";
-        }
-        else {
-            const div = document.createElement("div");
-            parEl.appendChild(div);
-            const span = document.createElement("span");
-            div.appendChild(span);
-            span.className = "caret";
-            span.innerText = "show " + fname;
+        const div = document.createElement("div");
+        parEl.appendChild(div);
+        const span = document.createElement("span");
+        div.appendChild(span);
+        span.className = "caret";
+        span.innerText = "show " + fname;
 
-            const pre = document.createElement("pre");
-            div.appendChild(pre);
-            pre.style.display = "none";
-            getCode(language, path, pre);
-            span.addEventListener("click", () => {
-                if (pre.style.display === "none") {
-                    pre.style.display = "block"
-                    span.className = "caret-down"
-                    span.innerText = "hide " + fname;
-                }
-                else {
-                    pre.style.display = "none"
-                    span.className = "caret";
-                    span.innerText = "show " + fname;
-                }
-            });
-        }
+        const pre = document.createElement("pre");
+        div.appendChild(pre);
+        pre.style.display = "none";
+        getCode(language, path, pre);
+        span.addEventListener("click", () => {
+            if (pre.style.display === "none") {
+                pre.style.display = "block"
+                span.className = "caret-down"
+                span.innerText = "hide " + fname;
+            }
+            else {
+                pre.style.display = "none"
+                span.className = "caret";
+                span.innerText = "show " + fname;
+            }
+        });
+
+
     }
     function getCode(language, url, root) {
         try {
@@ -194,7 +197,7 @@ function myCode(parEl, p_code) {
                 btn.innerText = "copy to clipboard";
                 btn.addEventListener("click", () => copyToClipboard(les));
                 root.appendChild(btn);
-           }
+            }
             request();
         } catch (error) {
             console.log(error);
