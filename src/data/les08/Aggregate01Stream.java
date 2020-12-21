@@ -21,9 +21,6 @@ import academy.kafka.entities.PaymentRequest;
 import academy.kafka.entities.ProvinceAggregate;
 import academy.kafka.serdes.AppSerdes;
 
-/**
- * Stream aggregates work on streams like transaction logs , every record keeps it's value, like bank records 
- */
 public class Aggregate01Stream {
     static Random rn = new Random();// helper, remove in production
 
