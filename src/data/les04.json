@@ -9,6 +9,13 @@
             "conclusion": "We will evaluate here both methods."
         },
         {
+            "text": "Download this zip and unpack it under a directory 'les04'",
+            "code": {
+                "language": "zip",
+                "path": "./data/les04/les04.zip"
+            }
+        },
+        {
             "text": "We will use a litte different pom.xml in this exercise.<br>See the extra plugin in the pom and the 2 extra dependencies.",
             "code": {
                 "language": "java",

@@ -10,12 +10,19 @@
     <artifactId>les04-json</artifactId>
     <properties>
         <jar.finalName>les04</jar.finalName>
+    
     </properties>
     <dependencies>
         <dependency>
             <groupId>com.kjetland</groupId>
             <artifactId>mbknor-jackson-jsonschema_2.13</artifactId>
             <version>1.0.39</version>
+        </dependency>
+         <dependency>
+            <groupId>org.everit.json</groupId>
+            <artifactId>org.everit.json.schema</artifactId>
+            <version>1.4.1</version>
+           
         </dependency>
         <dependency>
             <groupId>commons-lang</groupId>

@@ -5,6 +5,12 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kjetland.jackson.jsonSchema.JsonSchemaGenerator;
 
+import org.everit.json.schema.Schema;
+import org.everit.json.schema.ValidationException;
+import org.everit.json.schema.loader.SchemaLoader;
+import org.everit.json.schema.loader.internal.DefaultSchemaClient;
+import org.json.JSONObject;
+import org.json.JSONTokener;
 import academy.kafka.entities.Person;
 
 public class PojoToJsonSchema {
@@ -20,23 +26,24 @@ public class PojoToJsonSchema {
         Person result = JACKSON_MAPPER.readValue(json, Person.class);
         System.out.println("deserialize result:" + result);
 
-        JsonNode schema = generator.generateJsonSchema(Person.class);
-        System.out.println("schema:" + schema.toPrettyString());
+        JsonNode jsonSchema = generator.generateJsonSchema(Person.class);
+        JSONObject schemaObject = new JSONObject(JACKSON_MAPPER.writeValueAsString(jsonSchema));
+        Schema schema = SchemaLoader.load(schemaObject, new DefaultSchemaClient());
+        System.out.println("schema:" + schema);
 
         String json2 = "{\"bsn\":\"BSN1235\",\"lastName\":\"xxx\"}";
+
+        schema.validate(new JSONObject(json2));
 
         Person result2 = JACKSON_MAPPER.readValue(json2, Person.class);
 
         System.out.println("deserialize result2 with null values:" + result2);
 
-        String json3 = "{\"bsn\":\"BSN1235\",\"FirstName\":\"xxx\"}";
-
+        String json3 = "{\"bsn\":\"BSN1235\",\"firstName\":\"xxx\"}";
         try {
-            JACKSON_MAPPER.readValue(json3, Person.class);
-        } catch (com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException e) {
-            System.out
-                    .println("this exception is ok, required field (lastName) is missing, expected exception for input "
-                            + json3);
+            schema.validate(new JSONObject(json3));
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
         }
 
     }
