@@ -2,14 +2,13 @@
     "title": "Stateless Streaming Applications",
     "paragraphs": [
         {
-            "text":  "Streaming applications are <ol><li>Simple Java programs with a main</li><li>In production the ideal is that the fatjar (see pom.xml) should be deployed for every broker</li><li>There are <ul><li>Stateless Streams: the messages stream through the app and are not (temporary) stored.</li><li>Statefull Streams: The messages are stored (last state is stored), as message or after some grouping logic</li></ul></li><li>The application has a certain topology: <ul><li>the source is one or more topics</li><li>the target is zero or more topics</li><li>and in between some operations</li></ul></li><li>There are 2 prgramming models<ul><li><a href='https://kafka.apache.org/26/documentation/streams/developer-guide#streams_processor' target='_blank'>Low-level Processor API</a></li><li><a href='https://kafka.apache.org/26/documentation/streams/developer-guide#streams_dsl' target='_blank'>High-level Streams DSL</a></li></ul></li><li>We will limit ourselves with the high level DSL.</li</ol>."
-      
+            "text": "Streaming applications are <ol><li>Simple Java programs with a main</li><li>In production the ideal is that the fatjar (see pom.xml) should be deployed for every broker</li><li>There are <ul><li>Stateless Streams: The messages stream through the app and are not (temporary) stored.</li><li>Statefull Streams: With some grouping algorithm a certain state is created.</li></ul></li><li>The application has a certain topology: <ul><li>the source is one or more topics</li><li>the target is zero or more topics</li><li>and in between some operations</li></ul></li><li>There are 2 prgramming models<ul><li><a href='https://kafka.apache.org/26/documentation/streams/developer-guide#streams_processor' target='_blank'>Low-level Processor API</a></li><li><a href='https://kafka.apache.org/26/documentation/streams/developer-guide#streams_dsl' target='_blank'>High-level Streams DSL</a></li></ul></li><li>We will limit ourselves with the high level DSL.</li</ol>."
         },
         {
-            "text": "Our simple pom for this course",
+            "text": "Our simple pomis nothing special, only now kafka-streams is really used",
             "code": {
                 "language": "xml",
-                "path": "./data/les07/pom.xml" 
+                "path": "./data/les07/pom.xml"
             }
         },
         {
@@ -46,7 +45,6 @@
                 "language": "java",
                 "path": "./data/les03/SimpleConsumer.java"
             }
-           
         },
         {
             "text": "It is possible to map the <b>value</b> of the messages to another value, see <a href='https://kafka.apache.org/26/documentation/streams/developer-guide/dsl-api.html#stateless-transformations' target='_blank'>Look here for 'MapValues'</a>.<br>This is the most simple mapping.<br>Less simple, even problematic (why?), is mapping where also the <b>key</b> changes!!<br>In this example we let persons move from province to another province, and store the result in the same topic. <b>Have attention on the recursion!!</b><br>We will do it more often, we read from a topic, do a transformation, and store the message again in the same topic. We will do this often: storing a message back in the topic with a changed state.",
@@ -69,6 +67,6 @@
                 "language": "java",
                 "path": "./data/les07/Stream06GroupBy.java"
             }
-               }
+        }
     ]
 }
