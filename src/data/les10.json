@@ -48,7 +48,9 @@
                 "language": "java",
                 "path": "./data/les10/ShowData.java"
             }
+        },
+        {
+            "conclusion": "<b>In these examples we made some assumptions: <ol><li>PaymentRequest: it's key is a paymentreference and not an UUID or so. This is possible because we control the generation of paymentrequests and this can be the BSN + the registrationId (or kenteken?)+ info about the year/month</li><li>Payment: with the payment this is different. We hava to take the uuid what the banc gives us. We hope the customer has filled in the right paymentreference of the paymentrequest. Even if so, he/she can pay twice. We come to this in the next lesson, but for now the safest way should be to use streams for the Payment side of the join.</li></ol></b>"
         }
-
     ]
 }
