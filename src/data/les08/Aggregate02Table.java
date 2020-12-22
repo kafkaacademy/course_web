@@ -19,10 +19,7 @@ import org.apache.kafka.streams.kstream.Materialized;
 import org.apache.kafka.streams.kstream.Printed;
 import org.apache.kafka.streams.state.KeyValueStore;
 
-/**
- * Table aggregates work on streams like change logs, only the last record keeps it's value
- * Note the substractor : records/messages with null value are deleted
- */
+
 public class Aggregate02Table {
     static Random rn = new Random();// helper, remove in production
 
