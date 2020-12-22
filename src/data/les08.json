@@ -20,7 +20,7 @@
             }
         },
         {
-            "text": "The previous example worked on a stream. Another option is an aggregator with a table aggregator is similar to the stream aggregator, but has 4 parameters. The third parameter is an substractor.<br>If a key/value record comes in with a value of null), it is considered a deletion.",
+            "text": "The previous example worked on a stream. Another option is an aggregator with a table aggregator is similar to the stream aggregator, but has 4 parameters. The third parameter is an substractor.<br>If a key/value record comes in with a value of null), it is considered a deletion.<br>We aggegate now on persons in the province. <br><b>Combine this streaming app wit moving persons to another province, this should show all aspects of adding/subtracting/deleting</b>.",
             "code": {
                 "language": "java",
                 "path": "./data/les08/Aggregate02Table.java"

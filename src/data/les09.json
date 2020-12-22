@@ -2,14 +2,14 @@
     "title": "Windowing",
     "paragraphs": [
         {
-            "text": "Windowing <a href='https://kafka.apache.org/20/documentation/streams/developer-guide/dsl-api.html#windowing' target='_blank'>See Kafka documentation</a><br>There are a lot of windowing possibilities. But if you want the turnover per province per month, the nearest is windowing with 28 days.<br>Important aspect is how to get the time out of the message. See PaymentRequestTimeExtractor.",
+            "text": "Windowing <a href='https://kafka.apache.org/20/documentation/streams/developer-guide/dsl-api.html#windowing' target='_blank'>See Kafka documentation</a>. Note the different UpdateData.java.",
              "code": {
                 "language": "java",
-                "path": "./data/les09/PaymentRequestTimeExtractor.java"
+                "path": "./data/les09/ProduceData.java"
             },
             "code2": {
                 "language": "java",
-                "path": "./data/les09/CountingWindowApp.java"
+                "path": "./data/les09/WordCountApplication.java"
             }
         }
     ]

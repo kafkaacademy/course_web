@@ -1,9 +1,12 @@
 package academy.kafka;
 
+import academy.kafka.config.AppConfig;
+import academy.kafka.entities.Person;
+import academy.kafka.entities.ProvinceAggregate;
+import academy.kafka.serdes.AppSerdes;
 import java.util.Properties;
 import java.util.Random;
 import java.util.concurrent.CountDownLatch;
-
 import org.apache.kafka.common.utils.Bytes;
 import org.apache.kafka.streams.KafkaStreams;
 import org.apache.kafka.streams.KeyValue;
@@ -15,11 +18,6 @@ import org.apache.kafka.streams.kstream.Grouped;
 import org.apache.kafka.streams.kstream.Materialized;
 import org.apache.kafka.streams.kstream.Printed;
 import org.apache.kafka.streams.state.KeyValueStore;
-
-import academy.kafka.config.AppConfig;
-import academy.kafka.entities.PaymentRequest;
-import academy.kafka.entities.ProvinceAggregate;
-import academy.kafka.serdes.AppSerdes;
 
 /**
  * Table aggregates work on streams like change logs, only the last record keeps it's value
@@ -36,18 +34,22 @@ public class Aggregate02Table {
         props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, AppConfig.BootstrapServers);
         StreamsBuilder builder = new StreamsBuilder();
 
-        builder.table(PaymentRequest.topicName, Consumed.with(AppSerdes.String(), AppSerdes.PaymentRequest()))
-                .groupBy((k, v) -> KeyValue.pair(v.getProvinceName(), v),
-                        Grouped.with(AppSerdes.String(), AppSerdes.PaymentRequest()))
+        builder.table(Person.topicName, Consumed.with(AppSerdes.String(), AppSerdes.Person()))
+                .groupBy((k, v) -> KeyValue.pair(v.getProvince().getName(), v),
+                        Grouped.with(AppSerdes.String(), AppSerdes.Person()))
                 .aggregate(
                         // Initializer
                         () -> new ProvinceAggregate(null, 0),
                         // Adder
-                        (k, v, aggValue) -> new ProvinceAggregate(v.getProvinceName(),
-                                aggValue.getTotal() + v.getAmount()),
+                        (k, v, aggValue) -> {
+                            System.out.println("key: " + k + ", Prov: " + v.getProvince().getName() + ": add " + v.getLastName());
+                            return new ProvinceAggregate(v.getProvince().getName(), aggValue.getTotal()+1);
+                        },
                         // Subtractor
-                        (k, v, aggValue) -> new ProvinceAggregate(v.getProvinceName(),
-                                aggValue.getTotal() - v.getAmount()),
+                        (k, v, aggValue) -> {
+                            System.out.println("key: " + k + ", Prov: " + v.getProvince().getName() + ": subtract " + v.getLastName());
+                            return new ProvinceAggregate(v.getProvince().getName(), aggValue.getTotal()-1);
+                        },
                         // Serializer
                         Materialized.<String, ProvinceAggregate, KeyValueStore<Bytes, byte[]>>as("stateStoreName")
                                 .withValueSerde(AppSerdes.ProvinceAggregate()))

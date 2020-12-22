@@ -38,11 +38,12 @@ public class Aggregate03Reduce {
 
         KStream<String, Person> personsOnProvince = persons.selectKey((bsn, person) -> person.getProvince().getName());
         KGroupedStream<String, Person> grped = personsOnProvince.groupByKey();
-/************************************
-     KTable<String, Person> tbl = grped.reduce((agrPerson, newPerson) -> {
-          ...EXERCISE try to get the oldest person registered at a province
+        KTable<String, Person> tbl = grped.reduce((agrPerson, newPerson) -> {
+            if (newPerson.getBirthday().isBefore(agrPerson.getBirthday()))
+                return newPerson;
+            else
+                return agrPerson;
         });
-************************************/
         tbl.toStream().peek((province,person)->System.out.println(province+" "+person.getLastName()+" "+person.getBirthday()));
 
         final Topology topology = builder.build();
