@@ -28,7 +28,7 @@
             "text": "Third try to generate payment requests. ",
             "code": {
                 "language": "java",
-                "path": "./data/les13/PaymentRequest04.java"
+                "path": "./data/les13/PaymentRequest05.java"
             },
             "conclusions": "Working?"
         },
