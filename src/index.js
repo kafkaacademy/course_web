@@ -54,7 +54,7 @@ body.appendChild(lessons);
 
 
 var currentLesson = 0;
-var lastLesson = 13;
+var lastLesson = 14;
 
 const lessenEl = document.getElementById("lessons");
 
