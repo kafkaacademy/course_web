@@ -1,0 +1,47 @@
+{
+    "title": "Generating PaymentRequests Improved solution",
+    "paragraphs": [
+        {
+            "text": "The problem with the previous solution is that, as time passes by, we need again to generate a new PaymentRequest. But what should trigger that proces? We introduce therefore a calendar.",
+            "code": {
+                "language": "java",
+                "path": "./data/les13/UpdateDay.java"
+            }
+        },
+        {
+            "text": "Our first try",
+            "code": {
+                "language": "java",
+                "path": "./data/les13/PaymentRequest03.java"
+            },
+            "conclusions": "Working?"
+        },
+        {
+            "text": "Second try to generate payment requests. ",
+            "code": {
+                "language": "java",
+                "path": "./data/les13/PaymentRequest04.java"
+            },
+            "conclusions": "Working?"
+        },
+        {
+            "text": "Third try to generate payment requests. ",
+            "code": {
+                "language": "java",
+                "path": "./data/les13/PaymentRequest04.java"
+            },
+            "conclusions": "Working?"
+        },
+        {
+            "text": "Maybe this one even better? ",
+            "code": {
+                "language": "java",
+                "path": "./data/les13/PaymentRequest06GlobalTable.java"
+            },
+            "conclusion": "Working?<br>It is Kafka's RocksDB use that is limitting here. Shall we solve this? Must be possible (1-3 months work)! "
+        },
+        {
+            "text": "An improvement on this can be better bookkeeping: that we register at the registration all payment_requests as generated for that registration (improved double bookkeeping)."
+        }
+    ]
+}
