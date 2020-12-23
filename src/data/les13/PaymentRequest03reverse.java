@@ -18,14 +18,13 @@ import academy.kafka.entities.Registration;
 import academy.kafka.serdes.AppSerdes;
 
 /*
- Stream of registrations coming in and joined with table Days.
- But the days are not filled yet.
- So initial the join is not executed.
- should we change left and right?
-
- 
+ reversed version:
+  left and right switched
+  works much better
+  but we still need to update the registration with the next date
+  problem here is also we do not change the registration to Apache Kafka some more is but horrible
 */
-public class PaymentRequest03 {
+public class PaymentRequest03reverse {
         static int rn = ThreadLocalRandom.current().nextInt(1000);
 
         static PaymentRequest createPaymentRequest(Registration registration, Day day) {
@@ -34,7 +33,7 @@ public class PaymentRequest03 {
         }
 
         public static void main(String[] args) {
-                   UpdateDay thread = new UpdateDay(10, 2011);//good starting point
+                   UpdateDay thread = new UpdateDay(10, 2012);//good starting point
                 thread.start();
                 Properties props = new Properties();
                 props.put(StreamsConfig.APPLICATION_ID_CONFIG, "payment_request" + rn);// !!!! NOT RANDOM ??
@@ -47,11 +46,11 @@ public class PaymentRequest03 {
                                 Consumed.with(AppSerdes.String(), AppSerdes.Registration()));
                                 registrations = registrations.selectKey((k, v) -> v.getNewPaymentRequestDate().toString());
                 registrations.peek((k, v) -> System.out.println(" key=" + k));
-
-                KTable<String, Day> dayTbl = builder.table(Day.topicName,
+                KTable<String, Registration> regTbl = registrations.toTable();
+                KStream<String, Day> dayStream = builder.stream(Day.topicName,
                                 Consumed.with(AppSerdes.String(), AppSerdes.Day()));
-                KStream<String, PaymentRequest> paymentRequests = registrations.join(dayTbl,
-                                (reg, day) -> createPaymentRequest(reg, day));
+                KStream<String, PaymentRequest> paymentRequests = dayStream.join(regTbl,
+                                (day, reg) -> createPaymentRequest(reg, day));
                 paymentRequests = paymentRequests.selectKey((k, v) -> v.getKey());
                 paymentRequests.peek((k, v) -> System.out.println("key=" + k + " period " + v.getPeriodStart()+"="+v.getPeriodEnd()));
                 paymentRequests.to(PaymentRequest.topicName,

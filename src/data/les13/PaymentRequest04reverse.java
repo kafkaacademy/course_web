@@ -19,11 +19,14 @@ import academy.kafka.entities.Registration;
 import academy.kafka.serdes.AppSerdes;
 
 /*
-Here a little better , but not fantastic
-some recursion here but join Stream-Table does not react ok on changing underlying streams
-join not re-evaluated
+days as a stream
+and registrations as a table
+works 
+why?
+The registrations are there already 
+but what if later registrations are added???
 */
-public class PaymentRequest04 {
+public class PaymentRequest04reverse {
 
         public static class TemporaryContainer {
                 Registration registration;
@@ -47,7 +50,7 @@ public class PaymentRequest04 {
         public static void main(String[] args) {
                 academy.kafka.utils.KafkaUtils.deleteTopic(Day.topicName);
                 academy.kafka.utils.KafkaUtils.createTopic(Day.topicName, 1, 1);
-                UpdateDay thread = new UpdateDay(10, 2009);//good starting point 
+                UpdateDay thread = new UpdateDay(10, 2017);//good starting point 
                 thread.start();
                 Properties props = new Properties();
                 props.put(StreamsConfig.APPLICATION_ID_CONFIG, "paymment_request" + rn);// !!!! Should be NO RANDOM
@@ -56,31 +59,33 @@ public class PaymentRequest04 {
                 props.put(StreamsConfig.COMMIT_INTERVAL_MS_CONFIG, 0);
 
                 StreamsBuilder builder = new StreamsBuilder();
-                KStream<String, Registration> registrations = builder.stream(Registration.topicName,
+                KTable<String, Registration> registrationTable = builder.table(Registration.topicName,
                                 Consumed.with(AppSerdes.String(), AppSerdes.Registration()));
-                registrations.peek((k, v) -> System.out
-                                .println("at start : key=" + k + " " + v.getNewPaymentRequestDate()));
+            //    registrations.toStream().peek((k, v) -> System.out
+             //                   .println("at start : key=" + k + " " + v.getNewPaymentRequestDate()));
 
-                registrations = registrations.selectKey((k, v) -> v.getNewPaymentRequestDate().toString());
+                registrationTable = registrationTable.toStream().selectKey((k, v) -> v.getNewPaymentRequestDate().toString()).toTable();
 
-                KTable<String, Day> dayTbl = builder.table(Day.topicName,
+                KStream<String, Day> dayStream = builder.stream(Day.topicName,
                                 Consumed.with(AppSerdes.String(), AppSerdes.Day()));
               //  dayTbl.toStream().peek((k, v) -> System.out
               //                  .println("day at start : day=" + k ));
 
-                KStream<String, TemporaryContainer> tmps = registrations.join(dayTbl,
-                                (reg, day) -> createTmp(reg, day));
+                KStream<String, TemporaryContainer> tmps = dayStream.join(registrationTable,
+                                (day, reg) -> createTmp(reg, day));
                 KStream<String, PaymentRequest> resultPaymentRequests = tmps
                                 .map((k, v) -> KeyValue.pair(v.paymentRequest.getKey(), v.paymentRequest));
                 KStream<String, Registration> resultRegistrations = tmps.filter((k, v) -> v.registration != null)
                                 .map((k, v) -> KeyValue.pair(v.registration.getKey(), v.registration));
 
-                resultRegistrations.peek((k, v) -> System.out.println("result : key=" + k + " " + v.getNewPaymentRequestDate()));
+             //   resultRegistrations.peek((k, v) -> System.out.println("result : key=" + k + " " + v.getNewPaymentRequestDate()));
                 resultRegistrations.to(Registration.topicName,
                                 Produced.with(AppSerdes.String(), AppSerdes.Registration()));
                 resultPaymentRequests.to(PaymentRequest.topicName,
                                 Produced.with(AppSerdes.String(), AppSerdes.PaymentRequest()));
-
+                resultPaymentRequests.peek((k, v) -> System.out
+                                .println("created payment request : key=" + k + " " + v.getPeriodStart()+"-"+v.getPeriodEnd()));
+           
                 KafkaStreams streams = new KafkaStreams(builder.build(), props);
                 streams.start();
 

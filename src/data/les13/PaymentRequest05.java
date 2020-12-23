@@ -20,6 +20,7 @@ import academy.kafka.entities.Registration;
 import academy.kafka.serdes.AppSerdes;
 
 /*
+the recursion that is needed : registration goes changed to Kafka
 join Table-Table does reacts ok on changing underlying streams
 join is re-evaluated
 WORKING finally!! (but what when nr of partitions>1)
@@ -28,11 +29,12 @@ startyear should be before any registrations
 
 with pause 10 to show progress
 
+
 */
 public class PaymentRequest05 {
 
-        static int startYear = 2010;// before any registration
-        static int pauseForNextDay = 10;// msec
+        static int startYear = 2012;// before any registration
+        static int pauseForNextDay = 5;// msec
 
         public static class TemporaryContainer {
                 Registration registration;
@@ -79,8 +81,8 @@ public class PaymentRequest05 {
                 StreamsBuilder builder = new StreamsBuilder();
                 KStream<String, Registration> registrations = builder.stream(Registration.topicName,
                                 Consumed.with(AppSerdes.String(), AppSerdes.Registration()));
-                registrations.peek((k, v) -> System.out
-                                .println("at start : key=" + k + " " + v.getNewPaymentRequestDate()));
+              //  registrations.peek((k, v) -> System.out
+             //                   .println("at start : key=" + k + " " + v.getNewPaymentRequestDate()));
 
                 KTable<String, Registration> regTbl = registrations
                                 .selectKey((k, v) -> v.getNewPaymentRequestDate().toString()).toTable();
@@ -94,13 +96,13 @@ public class PaymentRequest05 {
                                 .filter((k, v) -> v.registration != null)
                                 .map((k, v) -> KeyValue.pair(v.registration.getKey(), v.registration));
 
-                resultRegistrations.peek((k, v) -> System.out
-                                .println("new data for registration : key=" + k + " " + v.getNewPaymentRequestDate()));
-                resultRegistrations.to(Registration.topicName,
+                 resultRegistrations.to(Registration.topicName,
                                 Produced.with(AppSerdes.String(), AppSerdes.Registration()));
                 resultPaymentRequests.to(PaymentRequest.topicName,
                                 Produced.with(AppSerdes.String(), AppSerdes.PaymentRequest()));
-
+                 resultPaymentRequests.peek((k, v) -> System.out
+                               .println("created payment request : key=" + k + " " + v.getPeriodStart()+"-"+v.getPeriodEnd()));
+          
                 KafkaStreams streams = new KafkaStreams(builder.build(), props);
                 streams.start();
 
