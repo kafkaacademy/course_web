@@ -5,11 +5,7 @@
             "text": "Here some auditing on Kafka, add a Functional Exception if there is a problem!"            
         },
         {
-            "text": "If you have no data.",
-            "code": {
-                "language": "java",
-                "path": "./data/les14/ProduceData.java"
-            }
+            "text": "If you have no data you should follow les13: generate data there, and generate payment requests."
         },
         {
             "text": "Our first audit",
