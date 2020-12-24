@@ -2,6 +2,13 @@
     "title": "Websockets with Undertow",
     "paragraphs": [
         {
+            "text": "Download this zip and unpack it under a directory 'les17'",
+            "code": {
+                "language": "zip",
+                "path": "./data/les17/les17.zip"
+            }
+        },
+        {
             "text": "On the backend side (the Kafka side) this is a websocket server. Kafka streams, can stream also to the web client side.",
             "code": {
                 "language": "java",
