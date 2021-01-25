@@ -51,7 +51,7 @@
             "text": "Now do 'mvn clean install' and inspect the target directory.<br>You will see there is a fat jar 'les02-jar-with-dependencies.jar'.<br>Apache Kafka applications are standalone applications and can be run by calling the class with a main method ",
             "code": {
                 "language": "script",
-                "code": "java -cp  ./target/les02-jar-with-dependencies.jar academy.kafka.App"
+                "script": "java -cp  ./target/les02-jar-with-dependencies.jar academy.kafka.App"
             }
         },
         {

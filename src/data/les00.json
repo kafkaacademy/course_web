@@ -7,7 +7,7 @@
         {
             "text": "And verify your docker installation (versions will be higher)",
             "code": {
-                "code": "docker --version\nDocker version 19.03.13, build 4484c46d9d\n\ndocker-compose --version\ndocker-compose version 1.27.4, build 40524192"
+                "script": "docker --version\nDocker version 19.03.13, build 4484c46d9d\n\ndocker-compose --version\ndocker-compose version 1.27.4, build 40524192"
             }
         },
         {

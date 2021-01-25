@@ -133,11 +133,11 @@ for (let i = 0; i <= lastLesson; i++) {
 }
 
 function myCode(parEl, p_code) {
-    if (p_code.code != null) {    //inline code                 
+    if (p_code.script != null) {    //inline code                 
         const pre = document.createElement("pre");
         parEl.classList.add("code");
         parEl.appendChild(pre);
-        pre.innerText = p_code.code;
+        pre.innerText = p_code.script;
         return;
 
     }
