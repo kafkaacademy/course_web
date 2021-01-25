@@ -27,25 +27,25 @@
         },
         {
             "text": "<b>Extra for this course:</b> unzip these 2 zips in a dir of your choice, and do mvn install for both to add them to your local mvn repository",
-            "code": {
+            "code": [{
                 "language": "zip",
                 "path": "./data/les02/kafak_academy_serializers.zip"
             },
-            "code2": {
+             {
                 "language": "zip",
                 "path": "./data/les02/course_materials.zip"
-            }
+            }]
         },
         {
             "text": "Now your project structure should be ready for the course, we will test the basics by making an app.java with a simple main, and simulate messages coming from Kafka",
-            "code": {
+            "code": [{
                 "language": "java",
                 "path": "./data/les02/academy/kafka/App.java"
             },
-            "code2": {
+            {
                 "language": "java",
                 "path": "./data/les02/org/apache/kafka/SimulateApacheKafka.java"
-            }
+            }]
         },
         {
             "text": "Now do 'mvn clean install' and inspect the target directory.<br>You will see there is a fat jar 'les02-jar-with-dependencies.jar'.<br>Apache Kafka applications are standalone applications and can be run by calling the class with a main method ",

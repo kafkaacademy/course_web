@@ -107,12 +107,13 @@ for (let i = 0; i <= lastLesson; i++) {
                     }
 
                     if (p.code != null) {
+                        if (Array.isArray( p.code)){
+                           p.code.forEach(cd=> myCode(parEl, cd))
+                        }
+                        else
                         myCode(parEl, p.code);
-
                     }
-                    if (p.code2 != null) {
-                        myCode(parEl, p.code2);
-                    }
+                  
                     if (p.conclusion != null) {
                         const p1 = document.createElement("p");
                         p1.classList.add("conclusion");

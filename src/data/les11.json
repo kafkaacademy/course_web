@@ -3,26 +3,30 @@
     "paragraphs": [
         {
             "text": "We did this before, TransactionAware producers and consumers. <br>There are also more options to make producers Kafka Idempotent.",
-            "code": {
-                "language": "java",
-                "path": "./data/les11/IdemPotent00TransactionAwareConsumer.java"
-            },
-            "code2": {
-                "language": "java",
-                "path": "./data/les11/IdemPotent00TransactionAwareProducer.java"
-            },
+            "code": [
+                {
+                    "language": "java",
+                    "path": "./data/les11/IdemPotent00TransactionAwareConsumer.java"
+                },
+                {
+                    "language": "java",
+                    "path": "./data/les11/IdemPotent00TransactionAwareProducer.java"
+                }
+            ],
             "conclusion": "<b>It is in this way possible to produce data idempotent. This Idempotency works if Kafka stops working and comes up again, while the producer is waiting. BUT: if, by accident, a batch is deployed for the seocnd time, there is no protection against that. Here we will solve this problem to make it really IdemPotent.</b>"
         },
         {
             "text": "To make the payments really robust : we introduce 2 other topics : 'paymentIntake' and 'functionalException', and we generate duplicates ",
-            "code": {
-                "language": "java",
-                "path": "./data/les11/IdemPotent01ShowPaymentIntake.java"
-            },
-            "code2": {
-                "language": "java",
-                "path": "./data/les11/ProduceData.java"
-            }
+            "code": [
+                {
+                    "language": "java",
+                    "path": "./data/les11/IdemPotent01ShowPaymentIntake.java"
+                },
+                {
+                    "language": "java",
+                    "path": "./data/les11/ProduceData.java"
+                }
+            ]
         },
         {
             "text": "The next step is : we have to detect the duplicates:",

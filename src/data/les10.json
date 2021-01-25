@@ -7,25 +7,25 @@
         },
         {
             "text": "As first exercise we do a join of 2 tables , table PaymentRequest and some (fake) Payments. The payments in the sandbox have a key paymentReference. Later more on this.<br>In ProduceData we add some stupid payments.",
-            "code": {
+            "code":[ {
                 "language": "java",
                 "path": "./data/les10/Join01InnerJoinTableTable.java"
             },
-            "code2": {
+             {
                 "language": "java",
                 "path": "./data/les10/ProduceData.java"
-            }
+            }]
         },
         {
             "text": "If you know the logic of joining in Relational Databases, you should understand there 2 exercises also.",
-            "code": {
+            "code": [{
                 "language": "java",
                 "path": "./data/les10/Join02LeftJoinTableTable.java"
             },
-            "code2": {
+             {
                 "language": "java",
                 "path": "./data/les10/Join03OuterJoinTableTable.java"
-            }
+            }]
         },
         {
             "text": "And one side can be a stream.",

@@ -3,14 +3,14 @@
     "paragraphs": [
         {
             "text": "Let us make our first Kafka client : a Producer.<ul><li>Note that it is yust a simple main java program</li><li>All Kafka applications are yust simple java applications as this</li></ul>",
-            "code": {
+            "code": [{
                 "language": "java",
                 "path": "./data/les03/SimpleProducer.java"
             },
-           "code2": {
+            {
                 "language": "java",
                 "path": "./data/les03/SimpleConsumer.java"
-            },
+            }],
             "conclusion": "Add these to your project and run consumer and producer.<br>Note: <ul><li>The consumer sees only new messages (by default)!</li><li>So start consumer first, and then producer.</li></ul>"
         },
         {
