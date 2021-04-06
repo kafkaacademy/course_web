@@ -29,16 +29,6 @@ logo1.src = "./data/LogoCondensed.svg";
 logo1.classList.add("logo1");
 logocontainer.appendChild(logo1);
 
-const logotext2 = document.createElement("p");
-logotext2.classList.add("logotext2");
-logotext2.innerText = "for";
-logocontainer.appendChild(logotext2);
-
-const logo2 = document.createElement("img");
-logo2.src = "./data/LogoQualogy.svg";
-logo2.classList.add("logo2");
-logocontainer.appendChild(logo2);
-
 const menu = document.createElement("div");
 menu.id = "nav_menu";
 navbar.appendChild(menu);
@@ -51,7 +41,6 @@ menu.appendChild(lessonnumbertext);
 const lessons = document.createElement("div");
 lessons.id = "lessons";
 body.appendChild(lessons);
-
 
 var currentLesson = 0;
 var lastLesson = 19;
