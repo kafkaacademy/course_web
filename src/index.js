@@ -1,5 +1,5 @@
 import './css/style.css';
-
+import './test.js'
 import prettier from 'prettier/standalone';
 import parserHtml from "prettier/parser-html";
 import parserBabel from "prettier/parser-babel";
