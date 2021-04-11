@@ -2,7 +2,7 @@
     "title": "The stucture of our maven project",
     "paragraphs": [
         {
-            "text": "The generic pom.xml that we use, this is a minimal generic pom.<br>The dependencies:.<ul><li>Vesrion 2.6  of Apache Kafka</li><li>Used by Kafka : Jackson for handling Json</li><li>Used by Kafka : slf4j impementation of log4j</li><li>Undertow is needed for interactive communication (rest/websockets)</li><li>Jupiter we add for unit testing</li><li>For our course: serializers for education purposes</li><li>For our course: the course materials</li></ul>",
+            "text": "The generic pom.xml that we use, this is a minimal generic pom.<br>The dependencies:.<ul><li>Version 2.7  of Apache Kafka</li><li>Used by Kafka : Jackson for handling Json</li><li>Used by Kafka : slf4j impementation of log4j</li><li>Undertow is needed for interactive communication (rest/websockets)</li><li>Jupiter we add for unit testing</li><li>For our course: serializers for education purposes</li><li>For our course: the course materials</li></ul>",
             "code": {
                 "language": "xml",
                 "path": "./data/les02/pom_parent.xml"
@@ -29,7 +29,7 @@
             "text": "<b>Extra for this course:</b> unzip these 2 zips in a dir of your choice, and do mvn install for both to add them to your local mvn repository",
             "code": [{
                 "language": "zip",
-                "path": "./data/les02/kafak_academy_serializers.zip"
+                "path": "./data/les02/kafka_academy_serializers.zip"
             },
              {
                 "language": "zip",

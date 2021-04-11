@@ -12,7 +12,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>14</maven.compiler.source>
         <maven.compiler.target>14</maven.compiler.target>
-        <kafka.version>2.6.0</kafka.version>
+        <kafka.version>2.7.0</kafka.version>
         <log4j.version>2.11.1</log4j.version>
         <undertow.version>2.2.3.Final</undertow.version>
         <academy.kafka.version>1.0</academy.kafka.version>
