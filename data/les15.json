@@ -1,0 +1,40 @@
+{
+    "title": "Restservice implementation with Undertow",
+    "paragraphs": [
+        {
+            "text": "Download this zip and unpack it under a directory 'les15'",
+            "code": {
+                "language": "zip",
+                "path": "./data/les15/les15.zip"
+            }
+        },
+        {
+            "text": "and to be sure, we have data in Kafka:",
+            "code": {
+                "language": "java",
+                "path": "./data/les15/ProduceData.java"
+            }
+        },
+        {
+            "text": "Restservice interface is descibed in Kafka, see <a href=\"https://kafka.apache.org/documentation/#connect_rest\" target=\"_blank\">Apache Kafka</a>.<br><br>We use the undertow. It is the embedded webserver of JBoss. <a href='https://undertow.io/' target='_blank'>See JBOSS's Undertow<a>.<br>Confluent uses the jetty implementation.<br>Another option is Tomcat's embedded server. "
+         },
+         {
+            "text": "The Restserver is a thread to be started in a Stream Application. As you see in the constructor it is required to run within a Kafka Streaming Application.",
+            "code": {
+                "language": "java",
+                "path": "./data/les15/RestServer.java"
+            }
+         },
+         {
+            "text": "Within the stream you give an ktable an name for the underlying store.<br>With that storename the restserver is started.",
+            "code": {
+                "language": "java",
+                "path": "./data/les15/StreamWithRestService.java"
+            }
+         },
+         {
+            "text": "If you look at the code in the restserver, the store is a key/value database. <br>Kafka uses default <a href='https://rocksdb.org/' target='_blank'>RocksDB</a> for this, created and supported by Facebook."
+         }
+        
+    ]
+}

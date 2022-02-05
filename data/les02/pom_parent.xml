@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>academy.kafka</groupId>
+    <artifactId>course</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>14</maven.compiler.source>
+        <maven.compiler.target>14</maven.compiler.target>
+        <kafka.version>2.7.0</kafka.version>
+        <log4j.version>2.11.1</log4j.version>
+        <undertow.version>2.2.3.Final</undertow.version>
+        <academy.kafka.version>1.0</academy.kafka.version>
+        <jupiter.version>5.7.0</jupiter.version>
+    </properties>
+    <dependencies>
+           <!-- Apache Kafka-->
+           <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+            <version>${kafka.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-streams</artifactId>
+            <version>${kafka.version}</version>
+        </dependency>
+        <!-- needed for log messages, used by Apache Kafka-->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <!--and undertow for rest services and websockets-->
+        <dependency>
+            <groupId>io.undertow</groupId>
+            <artifactId>undertow-core</artifactId>
+            <version>${undertow.version}</version>
+        </dependency>
+        <!-- and we use jupiter for testing -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+           <dependency>
+            <groupId>academy.kafka</groupId>
+            <artifactId>course-materials</artifactId>
+            <version>${academy.kafka.version}</version>
+        </dependency>
+        <!--our extra serializers -->
+        <dependency>
+            <groupId>academy.kafka</groupId>
+            <artifactId>serializers</artifactId>
+            <version>${academy.kafka.version}</version>
+        </dependency>  
+    </dependencies>
+    <profiles>
+        <profile>
+            <!-- 
+               this profile activates a plugin to create a fat jar that can be executed stand alone,
+               flatjars of streaming apps are used for deployment in Apache Kafka clusters
+               activate this profile by specifying property jar.fileName
+            -->
+            <activation>
+                <property>
+                    <name>jar.finalName</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-assembly-plugin</artifactId>
+                        <version>3.3.0</version>
+                        <configuration>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                            <finalName>${jar.finalName}</finalName>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>make-assembly</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>single</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>

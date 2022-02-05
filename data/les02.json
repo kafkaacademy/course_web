@@ -1,0 +1,61 @@
+{
+    "title": "The stucture of our maven project",
+    "paragraphs": [
+        {
+            "text": "The generic pom.xml that we use, this is a minimal generic pom.<br>The dependencies:.<ul><li>Version 2.7  of Apache Kafka</li><li>Used by Kafka : Jackson for handling Json</li><li>Used by Kafka : slf4j impementation of log4j</li><li>Undertow is needed for interactive communication (rest/websockets)</li><li>Jupiter we add for unit testing</li><li>For our course: serializers for education purposes</li><li>For our course: the course materials</li></ul>",
+            "code": {
+                "language": "xml",
+                "path": "./data/les02/pom_parent.xml"
+            }
+        },
+        {
+            "text": "The pom.xml for les02 is",
+            "code": {
+                "language": "xml",
+                "path": "./data/les02/pom.xml"
+            }
+        },
+        {
+            "text": "One point of concern is the many messages coming from apache kafka in the log. We propose the following log4j.xml file, to be placed under ./src/main/resources/log4j.xml",
+            "code": {
+                "language": "xml",
+                "path": "./data/les02/log4j2.xml"
+            }
+        },
+        {
+            "text": "This log4j configuration handles messages coming from apache kafka different then the messages coming from our examples.<br>The Kafka messages are stored in <root>/log/..."
+        },
+        {
+            "text": "<b>Extra for this course:</b> unzip these 2 zips in a dir of your choice, and do mvn install for both to add them to your local mvn repository",
+            "code": [{
+                "language": "zip",
+                "path": "./data/les02/kafka_academy_serializers.zip"
+            },
+             {
+                "language": "zip",
+                "path": "./data/les02/course_lessons.zip"
+            }]
+        },
+        {
+            "text": "Now your project structure should be ready for the course, we will test the basics by making an app.java with a simple main, and simulate messages coming from Kafka",
+            "code": [{
+                "language": "java",
+                "path": "./data/les02/academy/kafka/App.java"
+            },
+            {
+                "language": "java",
+                "path": "./data/les02/org/apache/kafka/SimulateApacheKafka.java"
+            }]
+        },
+        {
+            "text": "Now do 'mvn clean install' and inspect the target directory.<br>You will see there is a fat jar 'les02-jar-with-dependencies.jar'.<br>Apache Kafka applications are standalone applications and can be run by calling the class with a main method ",
+            "code": {
+                "language": "script",
+                "script": "java -cp  ./target/les02-jar-with-dependencies.jar academy.kafka.App"
+            }
+        },
+        {
+            "text": "<b>The fat jar is important in production</b>.<br>In development we can do without."
+        }
+    ]
+}

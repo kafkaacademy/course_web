@@ -1,0 +1,16 @@
+{
+    "title": "Windowing",
+    "paragraphs": [
+        {
+            "text": "Windowing <a href='https://kafka.apache.org/20/documentation/streams/developer-guide/dsl-api.html#windowing' target='_blank'>See Kafka documentation</a>. Note the different UpdateData.java.",
+             "code":[ {
+                "language": "java",
+                "path": "./data/les09/ProduceData.java"
+            },
+             {
+                "language": "java",
+                "path": "./data/les09/WordCountApplication.java"
+            }]
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "title": "Websockets with Undertow",
+    "paragraphs": [
+        {
+            "text": "Download this zip and unpack it under a directory 'les19'",
+            "code": {
+                "language": "zip",
+                "path": "./data/les19/les19.zip"
+            }
+        },
+        {
+            "text": "Run this server. We used ajv-forms and ajv-forms-serializer (own products) available from 1.2.2021 with 'npm ajv-forms' and 'npm ajv-forms-serializer'.<br>It uses <a href='https://www.npmjs.com/package/ajv' target='_blank'>ajv<a>, more than 30.000.000 per week!<br>All based on json schema! "
+        },
+        {
+            "text": "The standards for javascript and html are managed by <a href='https://developer.mozilla.org/en-US/' target='_blank'>Mozilla</a>. <br>Last years there happend a lot on  WebComponents, very compact, light weight web apps can be made using these technics and embedded everywhere.<br>See also courses of Java (and webapp) Guru <a href='https://adam-bien.com/' target=''>Adam Bien</a>.<br>You should see this <a href='https://www.youtube.com/watch?v=e_myQSJ3LfA' target='_blank'>Webapps without Frameworks</a>"
+        }
+    ]
+}

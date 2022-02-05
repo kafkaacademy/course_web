@@ -1,0 +1,60 @@
+{
+    "title": "Kafka messages need a 'DDL' : a Json Schema",
+    "paragraphs": [
+        {
+            "text": "In real life we have more complex data than strings and numbers.<br>To handle these data we need a structure.<br>The industry standard for this is the popular <a href=\"https://www.json.org/json-en.html\" target=\"_blank\">Json</a>."
+        },
+        {
+            "text": "Similar with XML: There we have XSD to define the structure of XML) we have Json Schema for Json.<br>See <a href=\"https://json-schema.org/\" target=\"_blank\">Json Schema</a><br><br>Now we have 2 ways to enforce schemas for our json data: <ol><li>Use the schema as the source and generate Java from the schema.</li><li>Use the java Pojo as the source and generate the json schema from the java pojo</li></ol>",
+            "conclusion": "We will evaluate here both methods."
+        },
+        {
+            "text": "Download this zip and unpack it under a directory 'les04'",
+            "code": {
+                "language": "zip",
+                "path": "./data/les04/les04.zip"
+            }
+        },
+        {
+            "text": "We will use a litte different pom.xml in this exercise.<br>See the extra plugin in the pom and the 2 extra dependencies.",
+            "code": {
+                "language": "java",
+                "path": "./data/les04/pom.xml"
+            }
+        },
+        {
+            "text": "We will exercise now with java classes and generating json and json schema out of the java class.<p>We make person class with social security number (bsn) , lastname and firstname, and banc account. We add some Jackson Json annotations on the pojo.",
+            "code": {
+                "language": "java",
+                "path": "./data/les04/entities/Person.java"
+            }
+        },
+        {
+            "text": "With the popular java dependency com.kjetland we can  generate json schema and json out of the pojo. Download, compile and execute the following file:",
+            "code": {
+                "language": "java",
+                "path": "./data/les04/PojoToJsonSchema.java"
+            },
+            "conclusion": "Conclusion : We can get a neat json schema out of a pojo"
+        },
+        {
+            "text": "Now the other  way: we generate the java pojo out of the schema. Set this json in ./resources/schema/Person.json",
+            "code": {
+                "language": "java",
+                "path": "./data/les04/Person.json"
+            },
+            "conclusion": "run \"mvn clean install\" (this activates the plugin during 'generate-sources') and inspect the generated pojo (in ../generated/Person.java).<br>You see it is a complicated java class.<br>Also it is difficult to extend this java. It can be done by a wrapper, but .... we prefer for this course the previous way with the pojo as the source of the json schema."
+        },
+        {
+            "text": "Now test the result with:",
+            "code": {
+                "language": "java",
+                "path": "./data/les04/JsonSchemaToPojo.java"
+            },
+            "conclusion": "So this works also."
+        },
+        {
+            "text": "Conclusion: We prefer the first way : we make the entities in java and, when needed, we generate the schema's. <br>Motivation : <ul><li>We want to keep the java cleaner</li><li>We can enrich the java to our needs.</li><li>We are more used to model (calculate etc.) things in java than in json schema.</li></ul>However, you can choose of course different."
+        }
+    ]
+}

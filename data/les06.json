@@ -1,0 +1,37 @@
+{
+    "title": "A little more Apache Avro.",
+    "paragraphs": [
+        {
+            "text": "Download this zip and unpack it under a directory 'les06'",
+            "code": {
+                "language": "zip",
+                "path": "./data/les06/les06.zip"
+            }
+        },
+        {
+            "text": "Our pom for this course, with avro plugin",
+            "code": {
+                "language": "xml",
+                "path": "./data/les06/pom.xml"
+            }
+        },
+        {
+            "text": "And our avsc file (avsc=avro schema file)",
+            "code": {
+                "language": "json",
+                "path": "./data/les06/avroPerson.avsc"
+            }
+        },
+        {
+            "text": "Out of avsc we can generate java.<br>Out of java we can generate json <strong>schemas</strong>.",
+            "code": {
+                "language": "java",
+                "path": "./data/les06/Main.java"
+            }
+            ,"conclusion": "Run the main, see the json schema, and see that with more volume the average record size== size of the data. "
+        },
+        {
+            "text":  "You see that it makes sense to use Apache Avro, especially with high volumes."
+        }
+    ]
+}

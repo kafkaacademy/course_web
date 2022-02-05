@@ -1,0 +1,70 @@
+{
+    "title": "Generating PaymentRequests Improved solution",
+    "paragraphs": [
+        {
+            "text": "The problem with the previous solution is that, as time passes by, we need again to generate a new PaymentRequest. But what should trigger that proces? We introduce therefore a calendar.",
+            "code": {
+                "language": "java",
+                "path": "./data/les13/UpdateDay.java"
+            }
+        },
+        {
+            "text": "Our data is now serious , we generate 'generateSeriousStartPoint'.<br>Best to start with a clean Kafka by restarting Kafka.<br>Notice also the option 'generateAdditionalData', this is to check if new data added to Kafka is triggering the join.<br>Triggering the join appears to be a problem is some topic-topic joins and the purpose of this lesson is to find out what works and what doesn't work",
+            "code": {
+                "language": "java",
+                "path": "./data/les13/ProduceData.java"
+            },
+            "conclusions": "Working?"
+        }, {
+            "text": "Our first try, the table is a table of days, and the registrations is a stream.",
+            "code": {
+                "language": "java",
+                "path": "./data/les13/PaymentRequest03.java"
+            },
+            "conclusion": "Working? Why Not?<br>Because the stream registrations pass the join while the table days is being initialized."
+        },
+        {
+            "text": "We reverse table and stream: the table is a table of registrations, and the days is a stream.",
+            "code": {
+                "language": "java",
+                "path": "./data/les13/PaymentRequest03reverse.java"
+            },
+            "conclusion": "Working? A little?<br>Because the table registrations is created fast, and the join is activated by the stream of days.<br>But because the registrations are not updated with a new date it stops after the first paymentrequest creation."
+        },
+        {
+            "text": "Second try to generate payment requests. Now we store the registration after it is updated, but that is not enough.",
+            "code": {
+                "language": "java",
+                "path": "./data/les13/PaymentRequest04.java"
+            },
+            "conclusion": "Working? NO!"
+        },
+        {
+            "text": "Second try to generate payment requests. Now we store the registration after it is updated, but that is not enough.",
+            "code": {
+                "language": "java",
+                "path": "./data/les13/PaymentRequest04reverse.java"
+            },
+            "conclusion": "Working? YES! And... if we add extra data?"
+        },
+        {
+            "text": "Third try to generate payment requests a table-table join.",
+            "code": {
+                "language": "java",
+                "path": "./data/les13/PaymentRequest05.java"
+            },
+            "conclusions": "Working? YES. Also updates work. Still problem : yes it is partition dependant. But the basic is OK!"
+        },
+        {
+            "text": "Maybe this one even better? A GlobalTable with days, and a stream of registrations",
+            "code": {
+                "language": "java",
+                "path": "./data/les13/PaymentRequest06GlobalTable.java"
+            },
+            "conclusion": "Working?<br>It is Kafka's RocksDB use that is limitting here. Shall we solve this? Must be possible (1-3 months work)!<br>What is the problem: if we initialize the globaltable and process the join, adding more records to the globaltable does not trigger the join. No use is made of the tailing iterator of Rocksdb."
+        },
+        {
+            "text": "The solution now is to create a topic 'registrations-on-next-payment-date'.<br>And then do solution 5. This streamapp must be deployed for every broker involved."
+        }
+    ]
+}

@@ -1,0 +1,56 @@
+{
+    "title": "Joining in Apache Kafka Streams",
+    "paragraphs": [
+        {
+            "text": "See the documentation <a href='https://kafka.apache.org/20/documentation/streams/developer-guide/dsl-api.html#joining' target=\"_blank\">Joining in Apacha Kafka</a>.<br>Important aspects: <ul><li>Joining is (nearly) always on the keys of the key/value records</li><li>Joining table/stream A with table/stream B is only meaningfull if both topic A and topic B have the same (kind of) key and use the same partition distribution algorithm</li></ul>",
+            "conclusion": "<b>When do we get problems with the partition logic in Kafka?<b><br><ol><li>When we have more than 1 broker and our topic is created using more brokers</li><li>When we have more than 1 consumer in an ConsumerGroup.</li><li>Or more than one streaming application with the sama Application Id running.</li></ol><br>The reason for points 2 and 3 is: if only one consumer is active it takes all the work of all partitions on it's shoulder."
+        },
+        {
+            "text": "As first exercise we do a join of 2 tables , table PaymentRequest and some (fake) Payments. The payments in the sandbox have a key paymentReference. Later more on this.<br>In ProduceData we add some stupid payments.",
+            "code":[ {
+                "language": "java",
+                "path": "./data/les10/Join01InnerJoinTableTable.java"
+            },
+             {
+                "language": "java",
+                "path": "./data/les10/ProduceData.java"
+            }]
+        },
+        {
+            "text": "If you know the logic of joining in Relational Databases, you should understand there 2 exercises also.",
+            "code": [{
+                "language": "java",
+                "path": "./data/les10/Join02LeftJoinTableTable.java"
+            },
+             {
+                "language": "java",
+                "path": "./data/les10/Join03OuterJoinTableTable.java"
+            }]
+        },
+        {
+            "text": "And one side can be a stream.",
+            "code": {
+                "language": "java",
+                "path": "./data/les10/Join04InnerJoinStreamTable.java"
+            },
+            "conclusion": "Try out if leftjoin and outerjoin can also be used."
+        },
+        {
+            "text": "The GlobalKTable: this is a table used if a topic is spread over more partitions:",
+            "code": {
+                "language": "java",
+                "path": "./data/les10/Join05InnerJoinStreamGlobalTable.java"
+            }
+        },
+        {
+            "text": "And a handy tool to inspect results:",
+            "code": {
+                "language": "java",
+                "path": "./data/les10/ShowData.java"
+            }
+        },
+        {
+            "conclusion": "<b>In these examples we made some assumptions: <ol><li>PaymentRequest: it's key is a paymentreference and not an UUID or so. This is possible because we control the generation of paymentrequests and this can be the BSN + the registrationId (or kenteken?)+ info about the year/month</li><li>Payment: with the payment this is different. We hava to take the uuid what the banc gives us. We hope the customer has filled in the right paymentreference of the paymentrequest. Even if so, he/she can pay twice. We come to this in the next lesson, but for now the safest way should be to use streams for the Payment side of the join.</li></ol>In the next lesson much more on this!</b>"
+        }
+    ]
+}

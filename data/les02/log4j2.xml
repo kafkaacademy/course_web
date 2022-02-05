@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout>
+                <Pattern>%d{HH:mm:ss} %p %c{9.} [%t] %m%n</Pattern>
+            </PatternLayout>
+        </Console>
+        <File name="errorfile" fileName="logs/app.log">
+            <PatternLayout>
+                <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+            </PatternLayout>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Logger name="org.apache.kafka" level="debug" additivity="false">
+            <AppenderRef ref="errorfile" />
+        </Logger>
+        <Logger name="academy.kafka" level="debug" additivity="false">
+            <AppenderRef ref="console" />
+        </Logger>
+        <Root level="info">
+            <AppenderRef ref="console" />
+            <AppenderRef ref="errorfile" />
+        </Root>
+    </Loggers>
+</Configuration>

@@ -1,0 +1,36 @@
+{
+    "title": "Auditing your Kafka",
+    "paragraphs": [
+        {
+            "text": "Here some auditing on Kafka, add a Functional Exception if there is a problem!"            
+        },
+        {
+            "text": "If you have no data you should follow les13: generate data there, and generate payment requests."
+        },
+        {
+            "text": "Our first audit",
+            "code": {
+                "language": "java",
+                "path": "./data/les14/Audit01.java"
+            }
+        },
+        {
+            "text": "Another Audit ",
+            "code": {
+                "language": "java",
+                "path": "./data/les14/Audit02.java"
+            }
+        },
+        {
+            "text": "And one more ",
+            "code": {
+                "language": "java",
+                "path": "./data/les14/Audit03.java"
+            }
+        },
+        
+        {
+            "text": "Can you invent more? Make a simple one, and then a more difficult one: have all registrations on every day a payment request"
+        }
+    ]
+}

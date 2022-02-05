@@ -1,0 +1,61 @@
+{
+    "title": "Apache Avro (alternative of JsonSchema) , and (De)Serializers, with Apache Avro and with Json",
+    "paragraphs": [
+        {
+            "text": "Apache Avro is promoted by Confluent and others. It is used to design Schemas but it's advantage is it also compresses Json.<br>See <a href=\"http://avro.apache.org\" target=\"_blank\">Apache Avro</a>. <br>See Confluent's <a href=\"https://www.confluent.io/blog/avro-kafka-data\" target=\"_blank\">Motivation for Apache Avro</a>.<br>"
+        },
+        {
+            "text": "Our pom for this course, with the apache avro plugin",
+            "code": {
+                "language": "xml",
+                "path": "./data/les05/pom.xml"
+            }
+        },
+        {
+            "text": "Example of an avsc file",
+            "code": {
+                "language": "json",
+                "path": "./data/les05/avroPerson.avsc"
+            }
+        },
+        {
+            "text": "After 'mvn install' on the project, the java is generated.<br>Study the generated java."
+           
+        },
+        {
+            "text": "And then we can serizalize and deserialize the generated avro, as in this example:",
+            "code": {
+                "language": "java",
+                "path": "./data/les05/Main.java"
+            },
+            "conclusion":"Apache Avro can serialize and deserialize eeasy"
+        },
+        {
+            "text": "The utils we use here:",
+            "code": {
+                "language": "java",
+                "path": "./data/les05/AvroUtils.java"
+            },
+            "conclusion": "You see in the AvroUtils file, that there is a specific avro version and a generic avro version.<br> We focus in this course on the specific avro, because that uses Java classes."
+
+        },
+        {
+            "text": "Apache Avro serializers are part of the Confluent implementation. However for educational purposes, we have our own set of Avro (De)Serializers."
+            
+        },
+        {
+            "text": "Download this zip and unpack it under a directory 'les05'",
+            "code": {
+                "language": "zip",
+                "path": "./data/les05/les05.zip"
+            }
+        },
+        {
+            "text": "Study the different producers and consumers for Apache Avro."
+        },        
+        {
+            "text": "Study the different producers and consumers for Json serializers and deserializers. We need it later!"
+        }
+           
+    ]
+}

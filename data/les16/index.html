@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <title>Undertow Websocket example</title>
+    <script type="module" defer src='./web/index.js'></script>
+</head>
+
+<body>
+    <h1>WebSocket Chatbox example</span></h1>
+
+    <div style="display: flex">
+        <div>
+            <br>
+            <div id="chatMessages" style="height:150px;width: 300px; background-color: lightgray">
+            </div>
+
+            <form onsubmit="return false;" class="chatform" action="">
+                <label for="msg">Message for topic "<span id="chatbox"></span>"</label><br />
+                <input type="text" name="message" id="msg" />
+            </form>
+        </div>
+        <div>
+            <ul>
+                <li>Websocket is standard in all modern browsers</li>
+                <li>So not any javascript library needed</li>
+                <li>Undertow supports websockets and rest</li>
+                <li>Rest interface is defined in Apache Kafka</li>
+                <li>Implementation of Rest interface is needed to communicate with Apache Kafka Streaming Applications
+                </li>
+                <li>Implementation possibilities: Jetty,Undertow and Tomcat embedded.</li>
+                <li>Confluent uses Jetty</li>
+                <li>We prefer Undertow (Wildfly JBoss kernel)</li>
+                <li>We add the websocket possibility of undertow to make maximum use of the streaming data of Apache
+                    Kafka.
+                </li>
+                <li>In production <bold>for security: use https instead of http protocol, and wss instead of ws protocol
+                    </bold>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    
+</body>
+
+</html>

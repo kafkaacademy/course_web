@@ -1,0 +1,22 @@
+{
+    "$schema" : "http://json-schema.org/draft-04/schema#",
+    "title" : "Person",
+    "type" : "object",    
+    "javaType": "academy.kafka.generated.Person",
+    "additionalProperties" : false,
+    "properties" : {
+      "bsn" : {
+        "type" : "string"
+      },
+      "firstName" : {
+        "type" : "string"
+      },
+      "lastName" : {
+        "type" : "string"
+      },
+      "bancAccount" : {
+        "type" : "string"
+      }
+    },
+    "required" : [ "bsn", "lastName" ]
+  }

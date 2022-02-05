@@ -1,0 +1,71 @@
+{
+    "title": "Idempotency , and avoid duplicate messages in Kafka",
+    "paragraphs": [
+        {
+            "text": "We did this before, TransactionAware producers and consumers. <br>There are also more options to make producers Kafka Idempotent.",
+            "code": [
+                {
+                    "language": "java",
+                    "path": "./data/les11/IdemPotent00TransactionAwareConsumer.java"
+                },
+                {
+                    "language": "java",
+                    "path": "./data/les11/IdemPotent00TransactionAwareProducer.java"
+                }
+            ],
+            "conclusion": "<b>It is in this way possible to produce data idempotent. This Idempotency works if Kafka stops working and comes up again, while the producer is waiting. BUT: if, by accident, a batch is deployed for the seocnd time, there is no protection against that. Here we will solve this problem to make it really IdemPotent.</b>"
+        },
+        {
+            "text": "To make the payments really robust : we introduce 2 other topics : 'paymentIntake' and 'functionalException', and we generate duplicates ",
+            "code": [
+                {
+                    "language": "java",
+                    "path": "./data/les11/IdemPotent01ShowPaymentIntake.java"
+                },
+                {
+                    "language": "java",
+                    "path": "./data/les11/ProduceData.java"
+                }
+            ]
+        },
+        {
+            "text": "The next step is : we have to detect the duplicates:",
+            "code": {
+                "language": "java",
+                "path": "./data/les11/IdemPotent03DetectDuplicates.java"
+            },
+            "conclusion": "Can you interprete the outcome?"
+        },
+        {
+            "text": "Now we detected what is ok, how to handle the result? Let's try this:",
+            "code": {
+                "language": "java",
+                "path": "./data/les11/IdemPotent04Branching.java"
+            },
+            "conclusion": "It's nice but in the stream we lost the original value of the payment."
+        },
+        {
+            "text": "But what is possible, the generate a function exception with the payment key:",
+            "code": {
+                "language": "java",
+                "path": "./data/les11/IdemPotent05CreateFunctionalException.java"
+            },
+            "conclusion": "but for the ok stream, we have the id but in the flow our payment value is not available"
+        },
+        {
+            "text": "The count was too simple, our aggregate logic can do more , let's try:",
+            "code": {
+                "language": "java",
+                "path": "./data/les11/IdemPotent06Working.java"
+            },
+            "conclusion": "now you have several option what to do with the result. The ok payments can go to topic 'payment' , but what key shall we use? The rejected payments can go to payment-rejected or packed into a functional exception."
+        },
+        {
+            "text": "This is one of the options:",
+            "code": {
+                "language": "java",
+                "path": "./data/les11/IdemPotent07Final.java"
+            }
+        }
+    ]
+}

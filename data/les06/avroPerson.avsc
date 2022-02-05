@@ -1,0 +1,10 @@
+{"namespace": "academy.kafka",
+ "type": "record",
+ "name": "AvroPerson",
+ "fields": [
+     {"name": "bsn", "type": "string"},
+    {"name": "firstName", "type": "string"},
+    {"name": "lastName", "type": "string"},
+    {"name": "bancAccount", "type": "string"}
+ ]
+}

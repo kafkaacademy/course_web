@@ -1,0 +1,35 @@
+{
+    "title": "Websockets with Undertow",
+    "paragraphs": [
+        {
+            "text": "Download this zip and unpack it under a directory 'les16'",
+            "code": {
+                "language": "zip",
+                "path": "./data/les16/les16.zip"
+            }
+        },
+        {
+            "text": "On the backend side (the Kafka side) this is a websocket server. Kafka streams, can stream also to the web client side.",
+            "code": {
+                "language": "java",
+                "path": "./data/les16/WebsocketService01.java"
+            },
+            "conclusion": "Undertow websocket can be built into every Apache Kafka service (producer,consumer and stream)"
+        },
+        {
+            "text": "And on the client side (put in resources/web/index.html) :",
+            "code": {
+                "language": "html",
+                "path": "./data/les16/index.html"
+            }
+        },
+        {
+            "text": "See here in index.js (also in resources/web/index.js) that we use WebSocket, built in in every modern browser, no extra dependencies needed!!",
+            "code": {
+                "language": "js",
+                "path": "./data/les16/index.js"
+            },
+            "conclusion": "We will connect kafka topics as chatboxes's to the outside world."
+        }
+    ]
+}

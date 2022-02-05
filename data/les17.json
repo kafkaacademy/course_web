@@ -1,0 +1,15 @@
+{
+    "title": "Websockets with Undertow",
+    "paragraphs": [
+        {
+            "text": "Download this zip and unpack it under a directory 'les17'",
+            "code": {
+                "language": "zip",
+                "path": "./data/les17/les17.zip"
+            }
+        },
+        {
+            "text": "Websockets needs some structure to be implemented. A popular architecture is STOMP<br>We made our own architecture<ol><li>One chatbox for the metadata</li><li>One chatbox for control</li><li>And one chatbox for data</li></ol>"
+        }
+    ]
+}

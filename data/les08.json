@@ -1,0 +1,39 @@
+{
+    "title": "Aggregates, as a start to statefull Kafka operations",
+    "paragraphs": [
+        {
+            "text":  "Aggregating needs some attention, as our first real Statefull Kafka operation (after count).<br><a href='https://kafka.apache.org/26/documentation/streams/developer-guide/dsl-api.html#streams-developer-guide-dsl-aggregating' target='_blank'>Look here for the documentation of the Aggregator</a>"
+      
+        },
+        {
+            "text": "Our sandbox data that we always use",
+            "code": {
+                "language": "java",
+                "path": "./data/les08/ProduceData.java" 
+            }
+        },
+            {
+            "text": "An aggregator operator on a stream is applied after a <b>grouping operation</b>.<br><br>This means : first we do a groupby (or groupbykey).<br><br>And the step groupby gives an <b>GroupedStream</b>:<ol><li>The key: in our case yust a string<li>The value:  <b>this is a stream (!!!) of grouped data.</b></li></ol>As an example in our case, with groupBy on province name, the key is the name of the province, and the value is a stream of persons living in that province.<br><br>The stream aggregator has 3 parameters:<ol><li>An aggregator has to be initialized. Usually a new object is used to store the results here.</li><li>Then the second parameter does the add algorithm on the initialized value</li><li>And required is als a parameter how to materialize the result</li></ol>. The aggregator produces a table (a KTable) on which we can build more logic.",
+            "code": {
+                "language": "java",
+                "path": "./data/les08/Aggregate01Stream.java"
+            }
+        },
+        {
+            "text": "The previous example worked on a stream. Another option is an aggregator with a table aggregator is similar to the stream aggregator, but has 4 parameters. The third parameter is an substractor.<br>If a key/value record comes in with a value of null), it is considered a deletion.<br>We aggegate now on persons in the province. <br><b>Combine this streaming app wit moving persons to another province, this should show all aspects of adding/subtracting/deleting</b>.",
+            "code": {
+                "language": "java",
+                "path": "./data/les08/Aggregate02Table.java"
+            },
+            "conclusion": "<b>Detailed behavior for KGroupedStream:</b><br><br>Input records with null keys are ignored in general.<br>When a record key is received for the first time, then the value of that record is used as the initial aggregate value.<br>Whenever a record with a non-null value is received, the adder is called.<br><br><b>Detailed behavior for KGroupedTable:</b><br><br>Input records with null keys are ignored in general.<br>When a record key is received for the first time, then the value of that record is used as the initial aggregate value. Note that, in contrast to KGroupedStream, over time this initialization step may happen more than once for a key as a result of having received input tombstone records for that key.<br>When the first non-null value is received for a key (e.g., INSERT), then only the adder is called.<br>When subsequent non-null values are received for a key (e.g., UPDATE), then the subtractor is called with the old value as stored in the table and the adder is called with the new value of the input record that was just received. The order of execution for the subtractor and adder is not defined.<br>When a tombstone record – i.e. a record with a null value – is received for a key (e.g., DELETE), then only the subtractor is called. Note that, whenever the subtractor returns a null value itself, then the corresponding key is removed from the resulting KTable. If that happens, any next input record for that key will re-initialize its aggregate value."
+        } ,
+        {
+            "text": "Reduce is a simpler variant, usefull if the type of the value stays the same.<br>Here a nice exercise for you to get the eldest person of a province.",
+            "code": {
+                "language": "java",
+                "path": "./data/les08/Aggregate03Reduce.java"
+            }
+        }      
+       
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "title": "Websockets with Undertow",
+    "paragraphs": [
+        {
+            "text": "Download this zip and unpack it under a directory 'les18'",
+            "code": {
+                "language": "zip",
+                "path": "./data/les18/les18.zip"
+            }
+        },
+        {
+            "text": "Run this server , it is yust very simple javascript. Can be embedded everywhere."
+        }
+    ]
+}

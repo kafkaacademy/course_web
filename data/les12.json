@@ -1,0 +1,33 @@
+{
+    "title": "Generating PaymentRequests out of registrations",
+    "paragraphs": [
+        {
+            "text": "Registrations are coming from outside <a href='https://kafk2020.web.app/' target='_blank'>See here</a>, the RDW. <br><br>Registrations have a start date (from) and an enddate (till) , see course material entity Registration.<br>We added an extra field 'newPaymentRequestDate' for our bookkeeping to the registration that is initially equal to 'from'.<br><br>Let us start first Update our initial position (see new 'ProduceData.java'), Note we are now becoming serious, we have to generate the payment requests ourself!",
+            "code": {
+                "language": "java",
+                "path": "./data/les12/ProduceData.java"
+            }
+        },
+        {
+            "text": "And now our first try to generate payment requests. ",
+            "code": {
+                "language": "java",
+                "path": "./data/les12/PaymentRequest01Tryout1.java"
+            },
+            "conclusions": "Robust enough?"
+        },
+        {
+            "text": "Second try to generate payment requests. ",
+            "code": {
+                "language": "java",
+                "path": "./data/les12/PaymentRequest02Tryout2.java"
+            },
+            "conclusions": "What is missing?"
+        },
+        {
+            "text": "Let us go to next lesson to improve this... "
+          
+        }
+       
+    ]
+}

@@ -1,0 +1,71 @@
+{
+    "title": "There are 2 popular docker images for Apache Kafka: Wurstmeister and Bitnami",
+    "paragraphs": [
+        {
+            "text": "Download this zip and unpack it under a directory 'les01'",
+            "code": {
+                "language": "zip",
+                "path": "./data/les01/les01.zip"
+            }
+        },
+        {
+            "text": "And from now on you can start Apache Kafka",
+            "code": {
+                "script": "docker-compose -f docker-compose.yml up"
+            },
+            "conclusion": "with Ctrl-C you can stop Apache Kafka"
+        },
+        {
+            "text": "Or start Apache Kafka in detached mode (preferred):",
+            "code": {
+                "script": "docker-compose -f docker-compose.yml up -d"
+            }
+        },
+        {
+            "text": "And stop Apache Kafka with: ",
+            "code": {
+                "script": "docker-compose  -f docker-compose.yml stop"
+            }
+        },
+        {
+            "text": "And start Apache Kafka again",
+            "code": {
+                "script": "docker-compose  -f docker-compose.yml start"
+            }
+        },
+        {
+            "text": "Also you should be able to use Kafka by logging in into the running Kafka Image and do basic operations. See last 5 minutes Bitnami video. ",
+            "code": {
+                "script": "docker exec -it kafka /bin/sh"
+            }
+        },
+        {
+            "text": "The code for bitname",
+            "code": {
+                "language": "yml",
+                "path": "./data/les01/docker-compose.yml"
+            }
+        },
+        {
+            "text": "The code for wurstmeister",
+            "code": {
+                "language": "yml",
+                "path": "./data/les01/docker-compose-wurstmeister.yml"
+            }
+        },
+        {
+            "text": "Optional a popular Kafka Manager made by yahoo",
+            "code": {
+                "language": "txt",
+                "path": "./data/les01/README.txt"
+            }
+        },
+        {
+            "text": "And later to start a cluster with 3 brokers",
+            "code": {
+                "language": "cmd",
+                "path": "./data/les01/runthiscommandfor3brokers.cmd"
+            }
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "title": "Make your system ready for the course",
+    "paragraphs": [
+        {
+            "text": "Install Docker from <a href=\"https://www.docker.com/?utm_source=google&utm_medium=cpc&utm_campaign=dockerhomepage&utm_content=nemea&utm_term=dockerhomepage&utm_budget=growth&gclid=CjwKCAjw5p_8BRBUEiwAPpJO67rlJ1JFi7Zi2vHo4OOxO4heeLyD8_M5hWOn2AfqBLTieouTi8N6NBoCtZEQAvD_BwE\" target=\"_blank\">Docker Website</a>"
+        },
+        {
+            "text": "And verify your docker installation (versions will be higher)",
+            "code": {
+                "script": "docker --version\nDocker version 19.03.13, build 4484c46d9d\n\ndocker-compose --version\ndocker-compose version 1.27.4, build 40524192"
+            }
+        },
+        {
+            "text": "Also you neede: java (java 14), npm, and an IDE (Visual Code)"
+        },
+        {
+            "text": "<b>Wurstmeister</b> Install Wurstmeisers DockerCompose file from  <a href=\"https://www.youtube.com/watch?v=WnlX7w4lHvM\" target=\"_blank\">Instruction video for Wurstmeister</a>.<br>See <a href=\"http://selftuts.com/kafaka-setup-using-docker-compose\">here</a> for the code"
+        },
+        {
+            "text": "Or <b>Bitnami's DockerCompose file</b> according to this <a href=\"https://www.youtube.com/watch?v=2pBxoal7DY4\" target=\"_blank\">Instruction video Bitnami</a>.<br>See <a href=\"https://github.com/bitnami/bitnami-docker-kafka\">here</a> for the code"
+        }
+    ]
+}
