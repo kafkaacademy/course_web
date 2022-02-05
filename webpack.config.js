@@ -5,10 +5,17 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 
 module.exports = {
+    mode: "production",
     entry: {
         app: './src/index.js'
     },
     devtool: 'inline-source-map',
+    performance: {
+        maxAssetSize: 1500000,
+        assetFilter: (asset) => {
+          return asset.match('entrypoint1.js');
+        }
+      },
     plugins: [
         new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
         new HtmlWebpackPlugin({title : 'Apache Kafka Course'}),
