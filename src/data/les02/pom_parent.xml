@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project
-    xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>academy.kafka</groupId>
     <artifactId>course</artifactId>
@@ -12,15 +9,15 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>14</maven.compiler.source>
         <maven.compiler.target>14</maven.compiler.target>
-        <kafka.version>2.7.0</kafka.version>
-        <log4j.version>2.11.1</log4j.version>
-        <undertow.version>2.2.3.Final</undertow.version>
-        <academy.kafka.version>1.0</academy.kafka.version>
-        <jupiter.version>5.7.0</jupiter.version>
+        <kafka.version>3.2.0</kafka.version>
+        <log4j.version>2.17.2</log4j.version>
+        <undertow.version>2.2.17.Final</undertow.version>
+        <academy.kafka.version>1.1</academy.kafka.version>
+        <jupiter.version>5.8.2</jupiter.version>
     </properties>
     <dependencies>
-           <!-- Apache Kafka-->
-           <dependency>
+        <!-- Apache Kafka -->
+        <dependency>
             <groupId>org.apache.kafka</groupId>
             <artifactId>kafka-clients</artifactId>
             <version>${kafka.version}</version>
@@ -31,17 +28,18 @@
             <version>${kafka.version}</version>
         </dependency>
         <!-- needed for log messages, used by Apache Kafka-->
+      
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-slf4j-impl</artifactId>
-            <version>${log4j.version}</version>
-        </dependency>
-        <dependency>
+            <artifactId>log4j-api</artifactId>
+            <version>2.17.2</version>
+          </dependency>
+          <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>${log4j.version}</version>
-        </dependency>
-        <!--and undertow for rest services and websockets-->
+            <version>2.17.2</version>
+          </dependency>
+      <!--and undertow for rest services and websockets-->
         <dependency>
             <groupId>io.undertow</groupId>
             <artifactId>undertow-core</artifactId>
@@ -54,17 +52,18 @@
             <version>${jupiter.version}</version>
             <scope>test</scope>
         </dependency>
-           <dependency>
+        <!-- our course material extras-->
+        <dependency>
             <groupId>academy.kafka</groupId>
             <artifactId>course-materials</artifactId>
             <version>${academy.kafka.version}</version>
         </dependency>
-        <!--our extra serializers -->
+        <!--our extra serializers for educational purposes-->
         <dependency>
             <groupId>academy.kafka</groupId>
             <artifactId>serializers</artifactId>
             <version>${academy.kafka.version}</version>
-        </dependency>  
+        </dependency>
     </dependencies>
     <profiles>
         <profile>
@@ -104,4 +103,23 @@
             </build>
         </profile>
     </profiles>
+    <modules>
+        <module>les02_java_setup</module>
+        <module>les04_json</module>
+        <module>les05_serializers</module>
+        <module>les06_avro_tricks</module>
+        <module>les08_aggregates</module>
+        <module>les09_aggregate_windowed</module>
+        <module>les10_joining</module>
+        <module>les11_idempotent</module>
+        <module>les12_payment_requests</module>
+        <module>les13_payment_requests_improved</module>
+        <module>les14_audit_database</module>
+        <module>les15_undertow_rest</module>
+        <module>les16_undertow_ws_1</module>
+        <module>les17_undertow_ws_2</module>
+        <module>les18_undertow_ws_3</module>
+        <module>les19_undertow_ws_4</module>     
+
+    </modules>
 </project>

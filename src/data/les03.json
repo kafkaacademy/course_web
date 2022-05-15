@@ -14,10 +14,10 @@
             "conclusion": "Add these to your project and run consumer and producer.<br>Note: <ul><li>The consumer sees only new messages (by default)!</li><li>So start consumer first, and then producer.</li></ul>"
         },
         {
-            "text": "Extra exercises on Producer: Study Apache Kafka website on producing: <ol><li>send with callback ('aangetekend versturen') <a href='https://kafka.apache.org/26/javadoc/index.html?org/apache/kafka/clients/producer/KafkaProducer.html' target='_blank'>See Documentation</a></li><li>Or try out the transaction specified there</li></ol>"   
+            "text": "Extra exercises on Producer: Study Apache Kafka website on producing: <ol><li>send with callback ('aangetekend versturen') <a href='https://kafka.apache.org/27/javadoc/index.html?org/apache/kafka/clients/producer/KafkaProducer.html' target='_blank'>See Documentation</a></li><li>Or try out the transaction specified there</li></ol>"   
         },
         {
-            "text": "Extra exercises on Consuming: Study Apache Kafka website on consuming: <a href='https://kafka.apache.org/26/javadoc/index.html?org/apache/kafka/clients/consumer/KafkaConsumer.html' target='_blank'>See here</a><ol><li>Understand what is Committing on the consumer side.</li></ol> For more info on this see <a href='https://www.baeldung.com/kafka-exactly-once' target='_blank'>Baeldung</a>"
+            "text": "Extra exercises on Consuming: Study Apache Kafka website on consuming: <a href='https://kafka.apache.org/27/javadoc/index.html?org/apache/kafka/clients/consumer/KafkaConsumer.html' target='_blank'>See here</a><ol><li>Understand what is Committing on the consumer side.</li></ol> For more info on this see <a href='https://www.baeldung.com/kafka-exactly-once' target='_blank'>Baeldung</a>"
         },
         {
             "text": "We will do this more serious later, idempotency is an important aspect of building business critical applications in Kafka."

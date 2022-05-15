@@ -12,7 +12,7 @@ import academy.kafka.config.AppConfig;
 
 /**
  * see
- * https://kafka.apache.org/26/javadoc/org/apache/kafka/clients/producer/KafkaProducer.html
+ * https://kafka.apache.org/32/javadoc/org/apache/kafka/clients/producer/KafkaProducer.html
  * also interesting
  * :https://www.cloudkarafka.com/blog/2019-04-10-apache-kafka-idempotent-producer-avoiding-message-duplication.html
  */

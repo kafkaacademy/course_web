@@ -52,10 +52,17 @@
             }
         },
         {
-            "text": "For these and more instructions download following file, cd wurstmeister, unzip wurstmeister",
+            "text": ".NET version: For these and more instructions download following file, cd wurstmeister, unzip wurstmeister",
             "code": [{
                 "language": "zip",
-                "path": "./data/les00/wurstmeister.zip"
+                "path": "./data/les00/wurstmeister_dotnet.zip"
+            }]
+        },
+        {
+            "text": "Python version: For these and more instructions download following file, cd wurstmeister, unzip wurstmeister",
+            "code": [{
+                "language": "zip",
+                "path": "./data/les00/wurstmeister_python.zip"
             }]
         }
 

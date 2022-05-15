@@ -42,14 +42,5 @@
             }
             
         }
-        ,
-        {
-            "text": "The code for wurstmeister",
-            "code": {
-                "language": "md",
-                "path": "./data/les01/docker-compose-wurstmeister.yml"
-            }
-            
-        }
     ]
 }
