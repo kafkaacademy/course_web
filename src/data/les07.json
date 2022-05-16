@@ -12,7 +12,7 @@
             }
         },
         {
-            "text": "Testdata: we made a sandbox with test data, we will use this test data to study all the tricks with streaming.<br>Starting with lesson 20 we will become serious.",
+            "text": "Testdata: we made a sandbox with test data, we will use this test data to study all the tricks with streaming.",
             "code": {
                 "language": "java",
                 "path": "./data/les07/ProduceData.java"
