@@ -1,15 +1,9 @@
 {
-    "title": "There are 2 popular docker images for Apache Kafka: Wurstmeister and Bitnami",
+    "title": "There are several popular docker images for Apache Kafka. For each one the following instructions apply",
     "paragraphs": [
+      
         {
-            "text": "Download this zip and unpack it under a directory 'les01'",
-            "code": {
-                "language": "zip",
-                "path": "./data/les01/les01.zip"
-            }
-        },
-        {
-            "text": "And from now on you can start Apache Kafka",
+            "text": "From now on you can start Apache Kafka",
             "code": {
                 "script": "docker-compose -f docker-compose.yml up"
             },
@@ -28,7 +22,7 @@
             }
         },
         {
-            "text": "And start Apache Kafka again",
+            "text": "And start Apache Kafka again, but note that all our data is gone!\nIf you want to save data, the docker compose file should be extended with volume statements.",
             "code": {
                 "script": "docker-compose  -f docker-compose.yml start"
             }
@@ -39,33 +33,14 @@
                 "script": "docker exec -it kafka /bin/sh"
             }
         },
-        {
-            "text": "The code for bitname",
-            "code": {
-                "language": "yml",
-                "path": "./data/les01/docker-compose.yml"
-            }
-        },
+       
         {
             "text": "The code for wurstmeister",
             "code": {
                 "language": "yml",
                 "path": "./data/les01/docker-compose-wurstmeister.yml"
             }
-        },
-        {
-            "text": "Optional a popular Kafka Manager made by yahoo",
-            "code": {
-                "language": "txt",
-                "path": "./data/les01/README.txt"
-            }
-        },
-        {
-            "text": "And later to start a cluster with 3 brokers",
-            "code": {
-                "language": "cmd",
-                "path": "./data/les01/runthiscommandfor3brokers.cmd"
-            }
+            
         }
     ]
 }

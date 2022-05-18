@@ -7,17 +7,64 @@
         {
             "text": "And verify your docker installation (versions will be higher)",
             "code": {
-                "script": "docker --version\nDocker version 19.03.13, build 4484c46d9d\n\ndocker-compose --version\ndocker-compose version 1.27.4, build 40524192"
+                "script": "docker --version\nDocker version 20.10.12, build ...\n\ndocker-compose --version\ndocker-compose version v2.2.3"
             }
         },
         {
-            "text": "Also you neede: java (java 14), npm, and an IDE (Visual Code)"
+            "text": "There are 2 popular docker images for Apache Kafka: Wurstmeister and Bitnami, we follow the Wurstmeister one."
         },
         {
-            "text": "<b>Wurstmeister</b> Install Wurstmeisers DockerCompose file from  <a href=\"https://www.youtube.com/watch?v=WnlX7w4lHvM\" target=\"_blank\">Instruction video for Wurstmeister</a>.<br>See <a href=\"http://selftuts.com/kafaka-setup-using-docker-compose\">here</a> for the code"
+            "text": "Follow <a href=\"https://www.youtube.com/watch?v=4xFZ_iTZLTs&t=510s&ab_channel=BetterDataScience\" target=\"_blank\">Instructions for docker and kafka setup"
         },
         {
-            "text": "Or <b>Bitnami's DockerCompose file</b> according to this <a href=\"https://www.youtube.com/watch?v=2pBxoal7DY4\" target=\"_blank\">Instruction video Bitnami</a>.<br>See <a href=\"https://github.com/bitnami/bitnami-docker-kafka\">here</a> for the code"
+            "text": "The code for wurstmeister, the used ports for zookeeper(port 2181) and the kafka broker (port 9092) are the default ports used ",
+            "code": {
+                "language": "yml",
+                "path": "./data/les00/docker-compose.yml"
+            }
+        },
+        {
+            "text": "login in the docker image",
+            "code": {
+                "language": "script",
+                "script": "docker exec -it kafka /bin/sh"
+            }
+        },
+        {
+            "text": "go to the directory where kafka scripts are located",
+            "code": {
+                "language": "script",
+                "script": "cd /opt/kafka/bin"
+            }
+        },
+        {
+            "text": "create a kafka topic \"my_first_kafka_topic\"",
+            "code": {
+                "language": "script",
+                "script": "kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic first_kafka_topic"
+            }
+        },
+        {
+            "text": "list the kafka topics",
+            "code": {
+                "language": "script",
+                "script": "kafka-topics.sh --list --zookeeper zookeeper:2181"
+            }
+        },
+        {
+            "text": ".NET version: For these and more instructions download following file, cd wurstmeister, unzip wurstmeister",
+            "code": [{
+                "language": "zip",
+                "path": "./data/les00/wurstmeister_dotnet.zip"
+            }]
+        },
+        {
+            "text": "Python version: For these and more instructions download following file, cd wurstmeister, unzip wurstmeister",
+            "code": [{
+                "language": "zip",
+                "path": "./data/les00/wurstmeister_python.zip"
+            }]
         }
+
     ]
 }

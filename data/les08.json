@@ -2,7 +2,7 @@
     "title": "Aggregates, as a start to statefull Kafka operations",
     "paragraphs": [
         {
-            "text":  "Aggregating needs some attention, as our first real Statefull Kafka operation (after count).<br><a href='https://kafka.apache.org/26/documentation/streams/developer-guide/dsl-api.html#streams-developer-guide-dsl-aggregating' target='_blank'>Look here for the documentation of the Aggregator</a>"
+            "text":  "Aggregating needs some attention, as our first real Statefull Kafka operation (after count).<br><a href='https://kafka.apache.org/32/documentation/streams/developer-guide/dsl-api.html#streams-developer-guide-dsl-aggregating' target='_blank'>Look here for the documentation of the Aggregator</a>"
       
         },
         {
@@ -13,7 +13,7 @@
             }
         },
             {
-            "text": "An aggregator operator on a stream is applied after a <b>grouping operation</b>.<br><br>This means : first we do a groupby (or groupbykey).<br><br>And the step groupby gives an <b>GroupedStream</b>:<ol><li>The key: in our case yust a string<li>The value:  <b>this is a stream (!!!) of grouped data.</b></li></ol>As an example in our case, with groupBy on province name, the key is the name of the province, and the value is a stream of persons living in that province.<br><br>The stream aggregator has 3 parameters:<ol><li>An aggregator has to be initialized. Usually a new object is used to store the results here.</li><li>Then the second parameter does the add algorithm on the initialized value</li><li>And required is als a parameter how to materialize the result</li></ol>. The aggregator produces a table (a KTable) on which we can build more logic.",
+            "text": "An aggregator operator on a stream is applied after a <b>grouping operation</b>.<br><br>This means : first we do a groupby (or groupbykey).<br><br>And the step groupby gives an <b>GroupedStream</b>:<ol><li>The key: in our case just a string<li>The value:  <b>this is a stream (!!!) of grouped data.</b></li></ol>As an example in our case, with groupBy on province name, the key is the name of the province, and the value is a stream of persons living in that province.<br><br>The stream aggregator has 3 parameters:<ol><li>An aggregator has to be initialized. Usually a new object is used to store the results here.</li><li>Then the second parameter does the add algorithm on the initialized value</li><li>And required is als a parameter how to materialize the result</li></ol>. The aggregator produces a table (a KTable) on which we can build more logic.",
             "code": {
                 "language": "java",
                 "path": "./data/les08/Aggregate01Stream.java"

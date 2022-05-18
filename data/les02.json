@@ -1,8 +1,8 @@
 {
-    "title": "The stucture of our maven project",
+    "title": "The structure of our maven project",
     "paragraphs": [
         {
-            "text": "The generic pom.xml that we use, this is a minimal generic pom.<br>The dependencies:.<ul><li>Version 2.7  of Apache Kafka</li><li>Used by Kafka : Jackson for handling Json</li><li>Used by Kafka : slf4j impementation of log4j</li><li>Undertow is needed for interactive communication (rest/websockets)</li><li>Jupiter we add for unit testing</li><li>For our course: serializers for education purposes</li><li>For our course: the course materials</li></ul>",
+            "text": "The generic pom.xml that we use, this is a minimal generic pom.<br>The dependencies:.<ul><li>Version 2.8.1 of Apache Kafka</li><li>Used by Kafka : Jackson for handling Json</li><li>Used by Kafka : slf4j impementation of log4j</li><li>Undertow is needed for interactive communication (rest/websockets)</li><li>Jupiter we add for unit testing</li><li>For our course: serializers for educational purposes</li><li>For our course: the course materials</li></ul>",
             "code": {
                 "language": "xml",
                 "path": "./data/les02/pom_parent.xml"
@@ -55,7 +55,7 @@
             }
         },
         {
-            "text": "<b>The fat jar is important in production</b>.<br>In development we can do without."
+            "text": "<b>The   fat jar is important in production</b>.<br>In development we can do without."
         }
     ]
 }
