@@ -7,8 +7,8 @@ public class ProduceData {
 
     public static void main(final String[] args) {
         academy.kafka.utils.KafkaUtils.deleteTopic(PaymentIntake.topicName);
-        academy.kafka.utils.KafkaUtils.createTopic(PaymentIntake.topicName, 1, 1);
         academy.kafka.utils.KafkaUtils.deleteTopic(FunctionalException.topicName);
+        academy.kafka.utils.KafkaUtils.createTopic(PaymentIntake.topicName, 1, 1);
         academy.kafka.utils.KafkaUtils.createTopic(FunctionalException.topicName, 1, 1);
 
         academy.kafka.GenerateData.generateSandbox(10);
