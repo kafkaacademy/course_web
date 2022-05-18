@@ -2,7 +2,7 @@
     "title": "Basic Kafka: Producers and Consumers",
     "paragraphs": [
         {
-            "text": "Let us make our first Kafka client : a Producer.<ul><li>Note that it is yust a simple main java program</li><li>All Kafka applications are yust simple java applications as this</li></ul>",
+            "text": "Let us make our first Kafka client : a Producer.<ul><li>Note that it is yust a simple main java program</li><li>All Kafka applications are just simple java applications as this</li></ul>",
             "code": [{
                 "language": "java",
                 "path": "./data/les03/SimpleProducer.java"
