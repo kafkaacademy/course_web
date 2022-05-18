@@ -55,7 +55,7 @@
             }
         },
         {
-            "text": "<b>The fat jar is important in production</b>.<br>In development we can do without."
+            "text": "<b>The   fat jar is important in production</b>.<br>In development we can do without."
         }
     ]
 }
