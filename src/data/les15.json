@@ -16,7 +16,7 @@
             }
         },
         {
-            "text": "Restservice interface is descibed in Kafka, see <a href=\"https://kafka.apache.org/documentation/#connect_rest\" target=\"_blank\">Apache Kafka</a>.<br><br>We use the undertow. It is the embedded webserver of JBoss. <a href='https://undertow.io/' target='_blank'>See JBOSS's Undertow<a>.<br>Confluent uses the jetty implementation.<br>Another option is Tomcat's embedded server. "
+            "text": "Restservice interface is described in Kafka, see <a href=\"https://kafka.apache.org/documentation/#connect_rest\" target=\"_blank\">Apache Kafka</a>.<br><br>We use the undertow. It is the embedded webserver of JBoss. <a href='https://undertow.io/' target='_blank'>See JBOSS's Undertow<a>.<br>Confluent uses the jetty implementation.<br>Another option is Tomcat's embedded server. "
          },
          {
             "text": "The Restserver is a thread to be started in a Stream Application. As you see in the constructor it is required to run within a Kafka Streaming Application.",
